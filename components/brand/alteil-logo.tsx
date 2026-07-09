@@ -1,7 +1,6 @@
 import React from "react"
 
-// Alteil Solutions brand mark — an "A" mountain built from a navy peak
-// (uses currentColor so it adapts to light/dark) and a teal front peak.
+// Alteil Solutions brand mark: a teal accent plus the main brand peak.
 export function AlteilMark({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -32,7 +31,7 @@ export function AlteilMark({ className = "" }: { className?: string }) {
       H43
       Z
     "
-    fill="currentColor"
+    className="alteil-mark-main"
   />
 </svg>
   )

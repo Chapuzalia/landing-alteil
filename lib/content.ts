@@ -39,11 +39,11 @@ export const content = {
       closeMenu: "Cerrar menú",
     },
     hero: {
-      title: "SaaS a medida para operaciones reales.",
+      title: "Tecnología que se siente clara.",
       body:
-        "Transformamos procesos manuales en plataformas claras, escalables y listas para trabajar.",
-      primaryCta: "Cuéntanos tu problema",
-      secondaryCta: "Ver proyectos",
+        "Diseñamos productos digitales que ordenan el día a día y hacen que avanzar sea más fácil.",
+      primaryCta: "Hablemos de tu idea",
+      secondaryCta: "Ver el enfoque",
       stats: [
         { value: "B2B", label: "SaaS a medida" },
         { value: "5", label: "productos reales" },
@@ -240,11 +240,11 @@ export const content = {
       closeMenu: "Close menu",
     },
     hero: {
-      title: "Custom SaaS for real operations.",
+      title: "Technology that feels clear.",
       body:
-        "We turn manual workflows into clear, scalable platforms built for daily work.",
-      primaryCta: "Tell us your problem",
-      secondaryCta: "View projects",
+        "We design digital products that bring clarity to everyday work and make progress feel easier.",
+      primaryCta: "Tell us your idea",
+      secondaryCta: "See our approach",
       stats: [
         { value: "B2B", label: "custom SaaS" },
         { value: "5", label: "real products" },
@@ -382,11 +382,11 @@ export const content = {
       closeMenu: "Tancar menú",
     },
     hero: {
-      title: "SaaS a mida per a operacions reals.",
+      title: "Tecnologia que se sent clara.",
       body:
-        "Convertim processos manuals en plataformes clares, escalables i preparades per treballar.",
-      primaryCta: "Explica'ns el problema",
-      secondaryCta: "Veure projectes",
+        "Dissenyem productes digitals que ordenen el dia a dia i fan que avançar sigui més fàcil.",
+      primaryCta: "Parlem de la teva idea",
+      secondaryCta: "Veure l'enfocament",
       stats: [
         { value: "B2B", label: "SaaS a mida" },
         { value: "5", label: "productes reals" },
