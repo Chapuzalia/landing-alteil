@@ -30,10 +30,10 @@ export function MobileNav() {
 
         {/* Main bar */}
         <nav
-          className="flex items-center justify-between px-5 py-3 rounded-2xl border border-foreground/[0.06]"
+          className="flex items-center justify-between px-5 py-3.5 rounded-2xl border border-foreground/[0.06]"
           style={NAV_STYLE}
         >
-          <AlteilLogo markClassName="w-5 h-5 text-foreground" />
+          <AlteilLogo className="gap-2.5" markClassName="w-8 h-8 text-foreground" />
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-7" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>

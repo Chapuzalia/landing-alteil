@@ -4,13 +4,37 @@ import React from "react"
 // (uses currentColor so it adapts to light/dark) and a teal front peak.
 export function AlteilMark({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 64 64" className={className} fill="none" aria-hidden="true">
-      {/* Back navy peak — the tall "A" */}
-      <path d="M34 6 L60 58 L42 58 L30 32 Z" fill="currentColor" />
-      <path d="M34 6 L26 22 L33 38 L41 22 Z" fill="currentColor" />
-      {/* Front teal peak */}
-      <path d="M18 28 L40 58 L4 58 Z" fill="var(--brand-teal)" />
-    </svg>
+    <svg
+  viewBox="0 0 64 64"
+  className={className}
+  fill="none"
+  aria-hidden="true"
+>
+  {/* Alteil icon — first version, corrected parallel geometry */}
+
+  {/* Teal accent — right diagonal parallel to navy mark */}
+  <path
+    d="
+      M10 52
+      L19 31
+      L25 52
+      Z
+    "
+    fill="var(--brand-teal)"
+  />
+
+  {/* Navy diagonal mark */}
+  <path
+    d="
+      M30 10
+      H43
+      L56 52
+      H43
+      Z
+    "
+    fill="currentColor"
+  />
+</svg>
   )
 }
 

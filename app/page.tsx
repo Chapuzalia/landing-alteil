@@ -5,6 +5,7 @@ import { IntroAnimation, INTRO_DURATION_MS } from "@/components/animations/intro
 import { AgentInterface } from "@/components/visuals/agent-interface"
 import { PixelIcon } from "@/components/visuals/pixel-icon"
 import { LiveAgentFeed, LiveAgentCounter } from "@/components/visuals/live-agent-feed"
+import LightRays from "@/components/visuals/light-rays/light-rays"
 import { RevealText } from "@/components/animations/reveal-text"
 import { StackingAgentCards } from "@/components/visuals/stacking-agent-cards"
 import { MobileNav } from "@/components/layout/mobile-nav"
@@ -105,17 +106,12 @@ export default function AgenticPage() {
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative h-screen overflow-hidden">
 
-        {/* Static hero background */}
-        <img
-          src="/images/hero-static.png"
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          style={{ transform: "scale(1.03)" }}
-        />
+        {/* LightRays hero background */}
+        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none bg-background">
+          <div style={{ width: "1080px", height: "1080px", position: "relative" }}>
+           
+          </div>
+        </div>
         {/* Progressive blur + light gradient rising from bottom */}
         <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none" style={{ height: "65%", background: "linear-gradient(to top, var(--page-bg) 0%, var(--page-bg) 18%, rgb(var(--page-bg-rgb) / 0.85) 35%, rgb(var(--page-bg-rgb) / 0.5) 55%, rgb(var(--page-bg-rgb) / 0.15) 75%, transparent 100%)" }} />
         {/* Backdrop blur layers — progressively lighter toward top */}
