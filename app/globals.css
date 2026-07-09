@@ -258,6 +258,51 @@ html {
   to   { transform: translateX(0); }
 }
 /* Hero motion system */
+.hero-tilt-card {
+  transform: perspective(760px) rotateY(16deg) rotateX(4deg) rotateZ(-1deg) translateZ(0);
+  transform-origin: 68% 50%;
+  transform-style: preserve-3d;
+}
+
+.hero-tilt-card::after {
+  content: "";
+  position: absolute;
+  top: 9%;
+  right: 2%;
+  bottom: 9%;
+  width: 34px;
+  border-radius: 0 34px 34px 0;
+  background: linear-gradient(90deg, rgb(var(--ink-rgb) / 0.10), rgb(var(--ink-rgb) / 0.015));
+  filter: blur(0.2px);
+  transform: translateZ(-24px) rotateY(72deg);
+  transform-origin: left center;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.hero-tilt-card::before {
+  content: "";
+  position: absolute;
+  inset: 6% 1% 6% auto;
+  width: 28%;
+  border-radius: 0 38px 38px 0;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.28));
+  transform: translateZ(42px);
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.hero-tilt-card > * {
+  transform: translateZ(26px);
+}
+
+@media (min-width: 1024px) {
+  .hero-tilt-card {
+    transform: perspective(820px) rotateY(24deg) rotateX(5deg) rotateZ(-1.5deg) translateZ(0);
+    transform-origin: 72% 50%;
+  }
+}
+
 @keyframes hero-line-drift {
   0%, 100% { opacity: 0.24; transform: translateX(-18px) scaleX(0.86); }
   50% { opacity: 0.85; transform: translateX(18px) scaleX(1); }

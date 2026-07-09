@@ -92,8 +92,8 @@ export function MobileNav({
           </>
         )}
 
-        <div className="relative z-10 flex items-center justify-between gap-6">
-          <a href="#" onClick={handleLogoClick} className="flex items-center cursor-pointer">
+        <div className="relative z-10 grid grid-cols-[auto_auto] items-center justify-between gap-6 md:grid-cols-[1fr_auto_1fr]">
+          <a href="#" onClick={handleLogoClick} className="flex items-center cursor-pointer justify-self-start">
             <AlteilLogo
               className="gap-2.5"
               markClassName={`w-8 h-8 ${isGlass ? "text-black" : "text-foreground"}`}
@@ -101,7 +101,7 @@ export function MobileNav({
             />
           </a>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center justify-center gap-8 justify-self-center">
             {links.map((link) => (
               <a
                 key={link.label}
@@ -114,7 +114,7 @@ export function MobileNav({
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center justify-end gap-3 justify-self-end">
             <div className="relative">
               <button
                 type="button"
@@ -172,7 +172,7 @@ export function MobileNav({
 
           <button
             type="button"
-            className={`md:hidden flex items-center justify-center w-10 h-10 rounded-full border transition-colors ${iconButtonClass}`}
+            className={`md:hidden flex items-center justify-center w-10 h-10 rounded-full border transition-colors justify-self-end ${iconButtonClass}`}
             onClick={() => {
               setOpen((value) => !value)
               setLanguageOpen(false)
