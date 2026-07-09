@@ -43,16 +43,18 @@ export function AlteilLogo({
   className = "",
   markClassName = "w-6 h-6 text-foreground",
   showSolutions = true,
+  textClassName = "text-foreground",
 }: {
   className?: string
   markClassName?: string
   showSolutions?: boolean
+  textClassName?: string
 }) {
   return (
     <span className={`inline-flex items-center gap-2 ${className}`}>
       <AlteilMark className={markClassName} />
       
-      <span className="font-heading font-bold text-sm tracking-tight text-foreground">Alteil</span>
+      <span className={`font-heading font-bold text-sm tracking-tight ${textClassName}`}>Alteil</span>
         
     </span>
   )
