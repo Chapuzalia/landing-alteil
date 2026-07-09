@@ -1,120 +1,130 @@
 "use client"
 
-import { useState } from "react"
-import { ThemeToggle } from "@/components/theme/theme-toggle"
+import type React from "react"
+import { useEffect, useState } from "react"
+import { ArrowRight, ArrowUpRight, Menu, X } from "lucide-react"
 import { AlteilLogo } from "@/components/brand/alteil-logo"
+import { ThemeToggle } from "@/components/theme/theme-toggle"
 
 const NAV_LINKS = [
-  { label: "Platform",     href: "#platform" },
-  { label: "Solutions",    href: "#agents" },
-  { label: "Workflow",     href: "#workflow" },
-  { label: "Integrations", href: "#integrations" },
-  { label: "Pricing",      href: "#pricing" },
+  { label: "Platform", href: "#platform", targetId: "platform" },
+  { label: "Solutions", href: "#agents", targetId: "agents" },
+  { label: "Workflow", href: "#workflow", targetId: "workflow" },
+  { label: "Integrations", href: "#integrations", targetId: "integrations" },
+  { label: "Pricing", href: "#pricing", targetId: "pricing" },
 ]
-
-const NAV_STYLE = {
-  backdropFilter: "blur(16px)",
-  WebkitBackdropFilter: "blur(16px)",
-  background: "rgb(var(--page-bg-rgb) / 0.30)",
-  boxShadow: "0 8px 32px rgb(var(--ink-rgb) / 0.08), 0 2px 8px rgb(var(--ink-rgb) / 0.06)",
-} as const
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
-  const close = () => setOpen(false)
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    setOpen(false)
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault()
+    const element = document.getElementById(targetId)
+    if (!element) return
+
+    const headerOffset = 100
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY
+    window.scrollTo({ top: elementPosition - headerOffset, behavior: "smooth" })
+    setOpen(false)
+  }
 
   return (
-    <div className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
-      <div className="pointer-events-auto w-full max-w-3xl">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "px-4 pt-4" : ""}`}>
+      <div
+        className={`mx-auto max-w-7xl transition-all duration-300 ${
+          isScrolled
+            ? "rounded-2xl border border-foreground/[0.08] bg-background/90 px-5 py-3 shadow-[0_16px_50px_rgb(var(--ink-rgb)/0.10)] backdrop-blur-xl"
+            : "bg-background/55 px-6 py-5 backdrop-blur-md"
+        }`}
+      >
+        <div className="flex items-center justify-between gap-6">
+          <a href="#" onClick={handleLogoClick} className="flex items-center cursor-pointer">
+            <AlteilLogo className="gap-2.5" markClassName="w-8 h-8 text-foreground" />
+          </a>
 
-        {/* Main bar */}
-        <nav
-          className="flex items-center justify-between px-5 py-3.5 rounded-2xl border border-foreground/[0.06]"
-          style={NAV_STYLE}
-        >
-          <AlteilLogo className="gap-2.5" markClassName="w-8 h-8 text-foreground" />
-
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-7" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
-            {NAV_LINKS.map(l => (
+          <nav className="hidden md:flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
               <a
-                key={l.label}
-                href={l.href}
-                className="text-[11px] text-foreground/60 hover:text-foreground transition-colors duration-200 tracking-wide"
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleSmoothScroll(e, link.targetId)}
+                className="text-sm text-foreground/55 hover:text-foreground transition-colors cursor-pointer"
               >
-                {l.label}
+                {link.label}
               </a>
             ))}
-          </div>
+          </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <button className="text-[11px] px-4 py-2 rounded-xl bg-[var(--brand-blue)] text-white hover:opacity-90 transition-all duration-200 tracking-wide hidden md:block">
-              GET STARTED
-            </button>
-
-            {/* Burger — mobile only */}
-            <button
-              onClick={() => setOpen(v => !v)}
-              className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-[5px] rounded-lg hover:bg-foreground/[0.04] transition-colors"
-              aria-label={open ? "Close menu" : "Open menu"}
-            >
-              <span
-                className="block h-px bg-foreground/60 transition-all duration-300 origin-center"
-                style={{
-                  width: "18px",
-                  transform: open ? "translateY(6px) rotate(45deg)" : "none",
-                }}
-              />
-              <span
-                className="block h-px bg-foreground/60 transition-all duration-300"
-                style={{
-                  width: "18px",
-                  opacity: open ? 0 : 1,
-                  transform: open ? "scaleX(0)" : "none",
-                }}
-              />
-              <span
-                className="block h-px bg-foreground/60 transition-all duration-300 origin-center"
-                style={{
-                  width: "18px",
-                  transform: open ? "translateY(-6px) rotate(-45deg)" : "none",
-                }}
-              />
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile dropdown */}
-        <div
-          className="md:hidden mt-2 overflow-hidden transition-all duration-300 ease-in-out"
-          style={{ maxHeight: open ? "320px" : "0px", opacity: open ? 1 : 0 }}
-        >
-          <div
-            className="rounded-2xl border border-foreground/[0.06] px-2 py-2 flex flex-col"
-            style={NAV_STYLE}
-          >
-            {NAV_LINKS.map(l => (
-              <a
-                key={l.label}
-                href={l.href}
-                onClick={close}
-                className="px-4 py-3 text-sm text-foreground/60 hover:text-foreground hover:bg-foreground/[0.03] rounded-xl transition-colors tracking-wide"
-                style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
-              >
-                {l.label}
-              </a>
-            ))}
-            <div className="mt-1 px-2 pb-1">
-              <button className="w-full text-[11px] px-4 py-2.5 rounded-xl bg-[var(--brand-blue)] text-white hover:opacity-90 transition-all duration-200 tracking-wide">
+            <button className="relative flex items-center gap-0 border border-foreground/15 rounded-full pl-5 pr-1 py-1 transition-all duration-300 group overflow-hidden">
+              <span className="absolute inset-0 rounded-full scale-x-0 origin-right bg-foreground group-hover:scale-x-100 transition-transform duration-300" />
+              <span className="text-sm pr-3 relative z-10 text-foreground group-hover:text-background transition-colors duration-300">
                 GET STARTED
-              </button>
-            </div>
+              </span>
+              <span className="w-8 h-8 rounded-full flex items-center justify-center relative z-10">
+                <ArrowRight className="w-4 h-4 text-foreground group-hover:opacity-0 absolute transition-opacity duration-300" />
+                <ArrowUpRight className="w-4 h-4 text-foreground opacity-0 group-hover:opacity-100 group-hover:text-background transition-all duration-300" />
+              </span>
+            </button>
           </div>
+
+          <button
+            type="button"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-foreground/10 text-foreground hover:bg-foreground/[0.04] transition-colors"
+            onClick={() => setOpen((value) => !value)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
 
+        {open && (
+          <nav className="md:hidden mt-6 pb-3 flex flex-col gap-4 border-t border-foreground/[0.08] pt-6">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleSmoothScroll(e, link.targetId)}
+                className="text-sm text-foreground/60 hover:text-foreground transition-colors cursor-pointer"
+              >
+                {link.label}
+              </a>
+            ))}
+
+            <div className="flex flex-col gap-3 mt-3 pt-4 border-t border-foreground/[0.08]">
+              <div className="w-fit">
+                <ThemeToggle />
+              </div>
+              <button className="relative flex items-center gap-0 border border-foreground/15 rounded-full pl-5 pr-1 py-1 w-fit transition-all duration-300 group overflow-hidden">
+                <span className="absolute inset-0 rounded-full scale-x-0 origin-right bg-foreground group-hover:scale-x-100 transition-transform duration-300" />
+                <span className="text-sm pr-3 relative z-10 text-foreground group-hover:text-background transition-colors duration-300">
+                  GET STARTED
+                </span>
+                <span className="w-8 h-8 rounded-full flex items-center justify-center relative z-10">
+                  <ArrowRight className="w-4 h-4 text-foreground group-hover:opacity-0 absolute transition-opacity duration-300" />
+                  <ArrowUpRight className="w-4 h-4 text-foreground opacity-0 group-hover:opacity-100 group-hover:text-background transition-all duration-300" />
+                </span>
+              </button>
+            </div>
+          </nav>
+        )}
       </div>
-    </div>
+    </header>
   )
 }

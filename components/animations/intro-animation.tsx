@@ -1,88 +1,98 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { AlteilMark } from "@/components/brand/alteil-logo"
 
 const LETTERS = ["A", "L", "T", "E", "I", "L"]
 
-const LETTER_IN_STAGGER  = 90    // ms between each letter appearing
-const LETTER_IN_DUR      = 700   // duration of each letter appear transition
-const HOLD_DURATION      = 300   // hold fully visible before exit
-const LETTERS_IN_TOTAL   = LETTER_IN_STAGGER * (LETTERS.length - 1) + LETTER_IN_DUR + HOLD_DURATION
+const LETTER_IN_STAGGER = 90
+const LETTER_IN_DUR = 700
+const LETTER_HOLD_DURATION = 420
+const LETTERS_VISIBLE_TOTAL = LETTER_IN_STAGGER * (LETTERS.length - 1) + LETTER_IN_DUR + LETTER_HOLD_DURATION
 
-const LETTER_OUT_STAGGER = 55    // ms between each letter disappearing
-const LETTER_OUT_DUR     = 450   // duration of each letter fade out
-const LETTERS_OUT_TOTAL  = LETTER_OUT_STAGGER * (LETTERS.length - 1) + LETTER_OUT_DUR
+const LETTER_OUT_STAGGER = 45
+const LETTER_OUT_DUR = 420
+const LETTERS_OUT_TOTAL = LETTER_OUT_STAGGER * (LETTERS.length - 1) + LETTER_OUT_DUR
 
-const CURTAIN_DELAY      = LETTERS_IN_TOTAL + 100
-const CURTAIN_DURATION   = 1300  // matches the CSS transition on the curtain div
-const ANIM_TOTAL         = CURTAIN_DELAY + LETTERS_OUT_TOTAL + 1400
+const LOGO_IN_DELAY = LETTERS_VISIBLE_TOTAL + 180
+const LOGO_IN_DUR = 360
+const LOGO_HOLD_DURATION = 0
+const LOGO_OPEN_DELAY = LOGO_IN_DELAY + 180
+const LOGO_OPEN_DUR = 900
 
-// Exported: moment the curtain finishes retracting — when the bg is fully visible
+const CURTAIN_DELAY = LOGO_OPEN_DELAY + 40
+const CURTAIN_DURATION = 900
+const ANIM_TOTAL = CURTAIN_DELAY + CURTAIN_DURATION + 260
+
 export const INTRO_DURATION_MS = CURTAIN_DELAY + CURTAIN_DURATION
-// Exported: ms before curtain fully done to start hero animations (overlap for smoothness)
 export const HERO_REVEAL_MS = CURTAIN_DELAY + CURTAIN_DURATION - 150
 
-type Phase = "idle" | "in" | "out" | "done"
+type Phase = "idle" | "letters-in" | "letters-out" | "logo-in" | "logo-open" | "done"
 
 export function IntroAnimation({ onDone }: { onDone: () => void }) {
   const [phase, setPhase] = useState<Phase>("idle")
   const [curtainUp, setCurtainUp] = useState(false)
 
   useEffect(() => {
-    // Tiny delay so the browser has painted before we start transitioning
-    const t0 = setTimeout(() => setPhase("in"), 80)
-    const t1 = setTimeout(() => setPhase("out"), LETTERS_IN_TOTAL)
-    const t2 = setTimeout(() => setCurtainUp(true), CURTAIN_DELAY)
-    const t3 = setTimeout(() => onDone(), HERO_REVEAL_MS)
-    const t4 = setTimeout(() => setPhase("done"), ANIM_TOTAL)
+    const t0 = setTimeout(() => setPhase("letters-in"), 80)
+    const t1 = setTimeout(() => setPhase("letters-out"), LETTERS_VISIBLE_TOTAL)
+    const t2 = setTimeout(() => setPhase("logo-in"), LOGO_IN_DELAY)
+    const t3 = setTimeout(() => setPhase("logo-open"), LOGO_OPEN_DELAY)
+    const t4 = setTimeout(() => setCurtainUp(true), CURTAIN_DELAY)
+    const t5 = setTimeout(() => onDone(), HERO_REVEAL_MS)
+    const t6 = setTimeout(() => setPhase("done"), ANIM_TOTAL)
 
-    return () => { clearTimeout(t0); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4) }
+    return () => {
+      clearTimeout(t0)
+      clearTimeout(t1)
+      clearTimeout(t2)
+      clearTimeout(t3)
+      clearTimeout(t4)
+      clearTimeout(t5)
+      clearTimeout(t6)
+    }
   }, [onDone])
 
   if (phase === "done") return null
 
+  const logoVisible = phase === "logo-in" || phase === "logo-open"
+  const logoOpening = phase === "logo-open"
+
   return (
     <div className="fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
-
-      {/* Gradient curtain — retracts upward, revealing mountains from bottom */}
       <div
         className="absolute inset-x-0 top-0"
         style={{
           bottom: curtainUp ? "100%" : "0%",
-          transition: curtainUp ? "bottom 1.3s cubic-bezier(0.76, 0, 0.24, 1)" : "none",
+          transition: curtainUp ? `bottom ${CURTAIN_DURATION}ms cubic-bezier(0.76, 0, 0.24, 1)` : "none",
           background: "var(--page-bg)",
         }}
       />
 
-      {/* AGENTIC letters */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="flex" style={{ gap: "0.06em" }}>
           {LETTERS.map((letter, i) => {
-            const inDelay  = i * LETTER_IN_STAGGER
+            const inDelay = i * LETTER_IN_STAGGER
             const outDelay = i * LETTER_OUT_STAGGER
-
-            // idle → invisible starting position
             const isIdle = phase === "idle"
-            const isIn   = phase === "in"
-            const isOut  = phase === "out"
-
-            const opacity    = isIdle ? 0 : isIn ? 1 : 0
-            const blur       = isIdle ? 36 : isIn ? 0 : 24
+            const isIn = phase === "letters-in"
+            const isOut = phase !== "idle" && phase !== "letters-in"
+            const opacity = isIdle ? 0 : isIn ? 1 : 0
+            const blur = isIdle ? 36 : isIn ? 0 : 24
             const translateY = isIdle ? 48 : isIn ? 0 : -20
-
             const transition = isOut
               ? `opacity ${LETTER_OUT_DUR}ms cubic-bezier(0.4,0,1,1) ${outDelay}ms,
-                 filter  ${LETTER_OUT_DUR}ms cubic-bezier(0.4,0,1,1) ${outDelay}ms,
+                 filter ${LETTER_OUT_DUR}ms cubic-bezier(0.4,0,1,1) ${outDelay}ms,
                  transform ${LETTER_OUT_DUR}ms cubic-bezier(0.4,0,1,1) ${outDelay}ms`
               : isIn
-              ? `opacity ${LETTER_IN_DUR}ms cubic-bezier(0.16,1,0.3,1) ${inDelay}ms,
-                 filter  ${LETTER_IN_DUR}ms cubic-bezier(0.16,1,0.3,1) ${inDelay}ms,
-                 transform ${LETTER_IN_DUR}ms cubic-bezier(0.16,1,0.3,1) ${inDelay}ms`
-              : "none"
+                ? `opacity ${LETTER_IN_DUR}ms cubic-bezier(0.16,1,0.3,1) ${inDelay}ms,
+                   filter ${LETTER_IN_DUR}ms cubic-bezier(0.16,1,0.3,1) ${inDelay}ms,
+                   transform ${LETTER_IN_DUR}ms cubic-bezier(0.16,1,0.3,1) ${inDelay}ms`
+                : "none"
 
             return (
               <span
-                key={i}
+                key={letter + i}
                 className="font-heading font-bold text-foreground leading-none select-none"
                 style={{
                   fontSize: `calc((100vw - 64px) / ${LETTERS.length})`,
@@ -101,6 +111,22 @@ export function IntroAnimation({ onDone }: { onDone: () => void }) {
         </div>
       </div>
 
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <div
+          className="text-foreground"
+          style={{
+            opacity: logoVisible ? (logoOpening ? 0 : 1) : 0,
+            filter: logoVisible ? (logoOpening ? "blur(18px)" : "blur(0px)") : "blur(24px)",
+            transform: logoOpening ? "scale(18)" : logoVisible ? "scale(1)" : "scale(0.72)",
+            transition: logoOpening
+              ? `opacity ${LOGO_OPEN_DUR}ms cubic-bezier(0.76,0,0.24,1), filter ${LOGO_OPEN_DUR}ms cubic-bezier(0.76,0,0.24,1), transform ${LOGO_OPEN_DUR}ms cubic-bezier(0.76,0,0.24,1)`
+              : `opacity ${LOGO_IN_DUR}ms cubic-bezier(0.16,1,0.3,1), filter ${LOGO_IN_DUR}ms cubic-bezier(0.16,1,0.3,1), transform ${LOGO_IN_DUR}ms cubic-bezier(0.16,1,0.3,1)`,
+            willChange: "opacity, filter, transform",
+          }}
+        >
+          <AlteilMark className="w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60" />
+        </div>
+      </div>
     </div>
   )
 }

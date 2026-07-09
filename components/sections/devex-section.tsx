@@ -85,7 +85,7 @@ function CodeLine({ line }: { line: (typeof STEPS)[0]["code"][0] }) {
   if (line.type === "comment") return <div className="text-[#9ca3af]">{line.text}</div>
   if (line.type === "output") return <div className="text-[#6b7280]">{line.text}</div>
   if (line.type === "success") return <div className="text-[#16a34a]">{line.text}</div>
-  if (line.type === "url") return <div className="text-[#2563eb] underline">{line.text}</div>
+  if (line.type === "url") return <div className="text-[#14bba6] underline">{line.text}</div>
   if (line.type === "command") return (
     <div>
       <span className="text-[#16a34a]">$ </span>
@@ -95,7 +95,7 @@ function CodeLine({ line }: { line: (typeof STEPS)[0]["code"][0] }) {
   if (line.type === "plain") return <div className="text-foreground">{line.text}</div>
   if (line.type === "prop") return (
     <div>
-      <span className="text-[#2563eb]">{line.key}</span>
+      <span className="text-[#14bba6]">{line.key}</span>
       <span className="text-foreground">: </span>
       <span className="text-[#16a34a]">{line.val}</span>
       <span className="text-foreground">,</span>
