@@ -54,7 +54,7 @@ export function AlteilLogo({
     <span className={`inline-flex items-center gap-2 ${className}`}>
       <AlteilMark className={markClassName} />
       
-      <span className={`font-heading font-bold text-sm tracking-tight ${textClassName}`}>Alteil</span>
+      <span className={`font-custom-logo text-2xl tracking-normal ${textClassName}`}>Alteil</span>
         
     </span>
   )

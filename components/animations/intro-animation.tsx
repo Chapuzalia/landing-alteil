@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { AlteilMark } from "@/components/brand/alteil-logo"
 
-const LETTERS = ["A", "L", "T", "E", "I", "L"]
+const LETTERS = ["A", "l", "t", "e", "i", "l"]
 
 const LETTER_IN_STAGGER = 90
 const LETTER_IN_DUR = 700
@@ -70,7 +70,7 @@ export function IntroAnimation({ onDone }: { onDone: () => void }) {
       />
 
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="flex" style={{ gap: "0.06em" }}>
+        <div className="flex font-custom-logo" style={{ gap: "0.06em" }}>
           {LETTERS.map((letter, i) => {
             const inDelay = i * LETTER_IN_STAGGER
             const outDelay = i * LETTER_OUT_STAGGER
@@ -93,7 +93,7 @@ export function IntroAnimation({ onDone }: { onDone: () => void }) {
             return (
               <span
                 key={letter + i}
-                className="font-heading font-bold text-foreground leading-none select-none"
+                className="font-heading font-bold text-foreground leading-none select-none font-custom-logo"
                 style={{
                   fontSize: `calc((100vw - 64px) / ${LETTERS.length})`,
                   letterSpacing: "0.05em",

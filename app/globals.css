@@ -94,8 +94,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-heading: 'Satoshi', 'Inter', sans-serif;
+  --font-sans: var(--font-custom-body, 'Inter'), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-custom-heading, 'Satoshi'), 'Inter', sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-pixel: 'Courier Prime', ui-monospace, monospace;
   --color-background: var(--background);
@@ -136,6 +136,21 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+
+@layer utilities {
+  .font-custom-heading {
+    font-family: var(--font-custom-heading, var(--font-heading));
+  }
+
+  .font-custom-logo {
+    font-family: var(--font-custom-logo, var(--font-heading));
+    font-weight: 900;
+  }
+
+  .font-custom-body {
+    font-family: var(--font-custom-body, var(--font-sans));
+  }
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
