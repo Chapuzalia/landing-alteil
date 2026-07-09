@@ -39,9 +39,9 @@ export const content = {
       closeMenu: "Cerrar menú",
     },
     hero: {
-      title: "Creamos SaaS a medida para empresas que necesitan resolver problemas reales.",
+      title: "SaaS a medida para operaciones reales.",
       body:
-        "Convertimos operativas complejas, procesos manuales y herramientas dispersas en plataformas claras, escalables y fáciles de usar.",
+        "Transformamos procesos manuales en plataformas claras, escalables y listas para trabajar.",
       primaryCta: "Cuéntanos tu problema",
       secondaryCta: "Ver proyectos",
       stats: [
@@ -240,9 +240,9 @@ export const content = {
       closeMenu: "Close menu",
     },
     hero: {
-      title: "We build custom SaaS for companies solving real operational problems.",
+      title: "Custom SaaS for real operations.",
       body:
-        "We turn complex operations, manual processes and scattered tools into clear, scalable platforms that are easy to use.",
+        "We turn manual workflows into clear, scalable platforms built for daily work.",
       primaryCta: "Tell us your problem",
       secondaryCta: "View projects",
       stats: [
@@ -382,9 +382,9 @@ export const content = {
       closeMenu: "Tancar menú",
     },
     hero: {
-      title: "Creem SaaS a mida per a empreses que necessiten resoldre problemes reals.",
+      title: "SaaS a mida per a operacions reals.",
       body:
-        "Convertim operatives complexes, processos manuals i eines disperses en plataformes clares, escalables i fàcils d'utilitzar.",
+        "Convertim processos manuals en plataformes clares, escalables i preparades per treballar.",
       primaryCta: "Explica'ns el problema",
       secondaryCta: "Veure projectes",
       stats: [
