@@ -20,8 +20,8 @@ const OFFSET_STEP = 8
 
 function Tag({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-teal)]/20 bg-[var(--brand-teal)]/[0.07] px-3.5 py-1.5 font-sans text-[11px] font-medium tracking-widest text-foreground/62 shadow-[0_10px_28px_rgb(20_187_166_/_0.08)]">
-      <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-teal)]" aria-hidden="true" />
+    <span className="inline-flex items-center gap-2 rounded-full border border-(--brand-teal)/20 bg-(--brand-teal)/7 px-3.5 py-1.5 font-sans text-[11px] font-medium tracking-widest text-foreground/62 shadow-[0_10px_28px_rgb(20_187_166/0.08)]">
+      <span className="h-1.5 w-1.5 rounded-full bg-(--brand-teal)" aria-hidden="true" />
       {children}
     </span>
   )
@@ -130,26 +130,26 @@ export function StackingAgentCards({
                         <ul className="grid gap-2 mb-5 md:mb-6">
                           {project.features.map(feature => (
                             <li key={`${project.label}-${feature}`} className="flex gap-3 text-sm text-foreground/52 leading-relaxed">
-                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--brand-teal)]" />
+                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-(--brand-teal)" />
                               <span>{feature}</span>
                             </li>
                           ))}
                         </ul>
-                        <p className="mb-6 rounded-xl border border-foreground/[0.06] bg-foreground/[0.025] px-4 py-3 text-xs leading-relaxed text-foreground/42 md:mb-8">
+                        <p className="mb-6 rounded-xl border border-foreground/6 bg-foreground/2.5 px-4 py-3 text-xs leading-relaxed text-foreground/42 md:mb-8">
                           {project.ideal}
                         </p>
                       </div>
                     </div>
                     <button
                       type="button"
-                      className="mb-5 inline-flex h-10 items-center justify-center rounded-full border border-foreground/10 bg-foreground/[0.03] px-4 text-[11px] font-medium tracking-widest text-foreground/52 transition-colors hover:border-foreground/20 hover:text-foreground md:hidden"
+                      className="mb-5 inline-flex h-10 items-center justify-center rounded-full border border-foreground/10 bg-foreground/3 px-4 text-[11px] font-medium tracking-widest text-foreground/52 transition-colors hover:border-foreground/20 hover:text-foreground md:hidden"
                       aria-expanded={isExpanded}
                       onClick={() => setExpandedCard(isExpanded ? null : project.label)}
                     >
                       {isExpanded ? collapseLabel : detailsLabel}
                     </button>
                   </div>
-                  <div className="flex flex-wrap gap-x-8 gap-y-4 pt-5 border-t border-foreground/[0.06] md:pt-6">
+                  <div className="flex flex-wrap gap-x-8 gap-y-4 pt-5 border-t border-foreground/6 md:pt-6">
                     {project.stats.map(stat => (
                       <div key={`${project.label}-${stat.l}`}>
                         <div className="font-heading text-2xl font-medium">{stat.v}</div>

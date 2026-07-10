@@ -2,44 +2,118 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/providers/theme-provider'
+import { content } from '@/lib/content'
 import { fontVariablesFallback } from '@/lib/fonts'
 import './globals.css'
 
+const siteUrl = 'https://alteilsolutions.com'
+const siteName = 'Alteil Solutions'
+const defaultMeta = content.es.meta
+const ogDescription = 'Convertimos operativas reales en SaaS claros, escalables y fáciles de usar.'
+
 export const metadata: Metadata = {
-  title: 'Alteil Solutions — SaaS a medida para empresas',
-  description: 'Creamos SaaS y herramientas digitales B2B para convertir procesos manuales en software claro, escalable y útil.',
+  metadataBase: new URL(siteUrl),
+  title: defaultMeta.title,
+  description: defaultMeta.description,
+  applicationName: siteName,
+  creator: siteName,
+  publisher: siteName,
   keywords: ['SaaS B2B', 'software a medida', 'automatización de procesos', 'herramientas internas', 'consultora tecnológica'],
-  authors: [{ name: 'Alteil Solutions' }],
+  authors: [{ name: siteName }],
+  alternates: {
+    canonical: '/',
+    languages: {
+      es: '/',
+      en: '/',
+      ca: '/',
+      'x-default': '/',
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
-    title: 'Alteil Solutions — SaaS a medida para empresas',
-    description: 'Convertimos operativas reales en SaaS claros, escalables y fáciles de usar.',
+    title: defaultMeta.title,
+    description: ogDescription,
     type: 'website',
-    url: 'https://alteil.io',
-    siteName: 'Alteil Solutions',
+    url: '/',
+    siteName,
+    locale: 'es_ES',
+    alternateLocale: ['en_US', 'ca_ES'],
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: siteName,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alteil Solutions — SaaS a medida para empresas',
+    title: defaultMeta.title,
     description: 'SaaS B2B y herramientas digitales para resolver problemas operativos reales.',
+    images: ['/og-image.png'],
   },
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: '/favicon.ico',
+        sizes: '32x32',
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: '/icon-light-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
       },
       {
         url: '/icon.svg',
         type: 'image/svg+xml',
       },
     ],
+    shortcut: '/favicon.ico',
     apple: '/apple-icon.png',
   },
 }
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: siteName,
+    url: siteUrl,
+    description: defaultMeta.description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteName,
+    url: siteUrl,
+    description: defaultMeta.description,
+    inLanguage: ['es', 'en', 'ca'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: siteName,
+    url: siteUrl,
+    description: defaultMeta.description,
+    serviceType: [
+      'Software a medida',
+      'SaaS B2B',
+      'Herramientas digitales',
+      'Automatización de procesos',
+    ],
+  },
+]
 
 export default function RootLayout({
   children,
@@ -68,6 +142,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          />
           <Analytics />
         </ThemeProvider>
       </body>

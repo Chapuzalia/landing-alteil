@@ -10,7 +10,7 @@ export function SiteFooter({
   footer: { rights: string; legal: readonly string[] }
 }) {
   return (
-    <footer className="py-10 px-6 md:px-12 lg:px-20 border-t border-foreground/[0.06]">
+    <footer className="py-10 px-6 md:px-12 lg:px-20 border-t border-foreground/6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         <AlteilLogo markClassName="w-5 h-5 text-foreground" />
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
@@ -24,7 +24,7 @@ export function SiteFooter({
           ))}
         </div>
       </div>
-      <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-foreground/[0.04]">
+      <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-foreground/4">
         <span className="text-xs text-foreground/20">{footer.rights}</span>
       </div>
     </footer>

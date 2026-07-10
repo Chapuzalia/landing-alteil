@@ -27,7 +27,7 @@ export function ContactSection({
   onSubmit: () => void
 }) {
   return (
-    <section id="contact" className="relative py-32 px-6 md:px-12 lg:px-20 border-t border-foreground/[0.06] overflow-hidden">
+    <section id="contact" className="relative py-32 px-6 md:px-12 lg:px-20 border-t border-foreground/6 overflow-hidden">
       <img src="/images/footer.png" alt="" aria-hidden="true" className="absolute bottom-0 left-0 w-full object-cover object-bottom pointer-events-none select-none" style={{ opacity: 0.85 }} />
       <div className="absolute inset-0 pointer-events-none" style={{ maskImage: "linear-gradient(to top, transparent 0%, black 55%)", WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 55%)", backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)" }} />
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, var(--page-bg) 0%, rgb(var(--page-bg-rgb) / 0.92) 18%, rgb(var(--page-bg-rgb) / 0.55) 35%, transparent 55%)" }} />
@@ -62,7 +62,7 @@ export function ContactSection({
                 {contact.fields.message}
                 <textarea required name="message" rows={5} className="resize-none bg-background/70 border border-foreground/10 rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-foreground/25 transition-colors" />
               </label>
-              <button type="submit" className="mt-2 h-12 rounded-xl bg-[var(--brand-blue)] px-6 text-sm font-medium tracking-widest text-white transition-opacity hover:opacity-90">
+              <button type="submit" className="mt-2 h-12 rounded-xl bg-(--brand-blue) px-6 text-sm font-medium tracking-widest text-white transition-opacity hover:opacity-90">
                 {contact.submit}
               </button>
             </form>

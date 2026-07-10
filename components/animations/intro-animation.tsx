@@ -59,7 +59,7 @@ export function IntroAnimation({ onDone }: { onDone: () => void }) {
   const logoOpening = phase === "logo-open"
 
   return (
-    <div className="fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
+    <div className="fixed inset-0 z-100 pointer-events-none" aria-hidden="true">
       <div
         className="absolute inset-x-0 top-0"
         style={{

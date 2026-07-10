@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <style>
+    .alteil-mark-main { fill: #111111; }
+    @media (prefers-color-scheme: dark) {
+      .alteil-mark-main { fill: #ffffff; }
+    }
+  </style>
+  <path d="M10 52 L19 31 L25 52 Z" fill="#16c4b1"/>
+  <path d="M30 10 H43 L56 52 H43 Z" class="alteil-mark-main"/>
+</svg>

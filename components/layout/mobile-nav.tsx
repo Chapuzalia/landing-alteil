@@ -70,11 +70,11 @@ export function MobileNav({
   const actionFillClass = isGlass ? "bg-black" : "bg-foreground"
   const actionBorderClass = isGlass ? "border-black/15" : "border-foreground/18"
   const iconButtonClass = isGlass
-    ? "border-black/10 text-black hover:bg-black/[0.04]"
-    : "border-foreground/12 text-foreground hover:bg-foreground/[0.06]"
+    ? "border-black/10 text-black hover:bg-black/4"
+    : "border-foreground/12 text-foreground hover:bg-foreground/6"
   const languageButtonClass = isGlass
-    ? "border-black/10 text-black hover:border-black/20 hover:bg-black/[0.04]"
-    : "border-foreground/12 text-foreground hover:border-foreground/20 hover:bg-foreground/[0.04]"
+    ? "border-black/10 text-black hover:border-black/20 hover:bg-black/4"
+    : "border-foreground/12 text-foreground hover:border-foreground/20 hover:bg-foreground/4"
   const activeLanguage = languages.find((item) => item.code === language) ?? languages[0]
 
   return (
@@ -147,8 +147,8 @@ export function MobileNav({
                             ? "bg-black text-white"
                             : "bg-foreground text-background"
                           : isGlass
-                            ? "text-black/58 hover:bg-black/[0.05] hover:text-black"
-                            : "text-foreground/58 hover:bg-foreground/[0.05] hover:text-foreground"
+                            ? "text-black/58 hover:bg-black/5 hover:text-black"
+                            : "text-foreground/58 hover:bg-foreground/5 hover:text-foreground"
                       }`}
                     >
                       <span>{item.label}</span>
@@ -158,7 +158,7 @@ export function MobileNav({
                 </div>
               )}
             </div>
-            <ThemeToggle className={isGlass ? "border-black/10 text-black hover:text-black hover:border-black/20 hover:bg-black/[0.04]" : ""} />
+            <ThemeToggle className={isGlass ? "border-black/10 text-black hover:text-black hover:border-black/20 hover:bg-black/4" : ""} />
             <button className={`relative flex items-center gap-0 border ${actionBorderClass} rounded-full pl-5 pr-1 py-1 transition-all duration-300 group overflow-hidden`}>
               <span className={`absolute inset-0 rounded-full scale-x-0 origin-right ${actionFillClass} group-hover:scale-x-100 transition-transform duration-300`} />
               <span className={`text-sm pr-3 relative z-10 ${actionTextClass} transition-colors duration-300`}>
@@ -186,7 +186,7 @@ export function MobileNav({
         </div>
 
         {open && (
-          <nav className="relative z-10 md:hidden mt-6 pb-3 flex flex-col gap-4 border-t border-black/[0.08] pt-6">
+          <nav className="relative z-10 md:hidden mt-6 pb-3 flex flex-col gap-4 border-t border-black/8 pt-6">
             {links.map((link) => (
               <a
                 key={link.label}
@@ -198,7 +198,7 @@ export function MobileNav({
               </a>
             ))}
 
-            <div className="flex flex-col gap-3 mt-3 pt-4 border-t border-black/[0.08]">
+            <div className="flex flex-col gap-3 mt-3 pt-4 border-t border-black/8">
               <div className="flex items-center gap-2" aria-label={languageLabel}>
                 {languages.map((item) => (
                   <button
@@ -208,7 +208,7 @@ export function MobileNav({
                     className={`h-9 rounded-full border px-3 text-xs tracking-widest transition-colors ${
                       language === item.code
                         ? "border-black/30 bg-black text-white"
-                        : "border-black/10 text-black/55 hover:text-black hover:bg-black/[0.04]"
+                        : "border-black/10 text-black/55 hover:text-black hover:bg-black/4"
                     }`}
                   >
                     {item.short}
@@ -216,7 +216,7 @@ export function MobileNav({
                 ))}
               </div>
               <div className="w-fit">
-                <ThemeToggle className="border-black/10 text-black hover:text-black hover:border-black/20 hover:bg-black/[0.04]" />
+                <ThemeToggle className="border-black/10 text-black hover:text-black hover:border-black/20 hover:bg-black/4" />
               </div>
               <button className="relative flex items-center gap-0 border border-black/15 rounded-full pl-5 pr-1 py-1 w-fit transition-all duration-300 group overflow-hidden">
                 <span className="absolute inset-0 rounded-full scale-x-0 origin-right bg-black group-hover:scale-x-100 transition-transform duration-300" />

@@ -41,7 +41,7 @@ export function BentoCard({ children, className = "", delay = 0 }: { children: R
   return (
     <BorderGlow
       rootRef={ref}
-      className={`group relative rounded-2xl transition-all duration-700 hover:bg-foreground/[0.02] ${className}`}
+      className={`group relative rounded-2xl transition-all duration-700 hover:bg-foreground/2 ${className}`}
       borderRadius={16}
       glowRadius={32}
       glowIntensity={0.85}
@@ -63,7 +63,7 @@ export function BentoCard({ children, className = "", delay = 0 }: { children: R
 
 export function Tag({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] tracking-widest font-sans text-foreground/40 bg-foreground/[0.04]">
+    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] tracking-widest font-sans text-foreground/40 bg-foreground/4">
       {children}
     </span>
   )
