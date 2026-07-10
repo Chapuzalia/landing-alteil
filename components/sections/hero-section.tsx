@@ -1,6 +1,7 @@
 "use client"
 
 import { AlteilMark } from "@/components/brand/alteil-logo"
+import { DecryptedText } from "@/components/animations/decrypted-text"
 
 type HeroContent = {
   title: string
@@ -40,7 +41,7 @@ export function HeroSection({ hero }: { hero: HeroContent; heroReady: boolean })
               transition: "opacity 1s cubic-bezier(0.16,1,0.3,1), filter 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1)",
             }}
           >
-            {hero.title}
+            <DecryptedText text={hero.title} />
           </h1>
 
           <p
@@ -52,7 +53,7 @@ export function HeroSection({ hero }: { hero: HeroContent; heroReady: boolean })
               transition: "opacity 0.9s cubic-bezier(0.16,1,0.3,1) 140ms, filter 0.9s cubic-bezier(0.16,1,0.3,1) 140ms, transform 0.9s cubic-bezier(0.16,1,0.3,1) 140ms",
             }}
           >
-            {hero.body}
+            <DecryptedText text={hero.body} />
           </p>
 
           <div
@@ -64,10 +65,10 @@ export function HeroSection({ hero }: { hero: HeroContent; heroReady: boolean })
             }}
           >
             <a href="#contact" className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--brand-blue)] px-6 text-sm font-medium tracking-widest text-white shadow-[0_18px_50px_rgb(15_118_110_/_0.22)] transition-all hover:-translate-y-0.5 hover:opacity-95">
-              {hero.primaryCta}
+              <DecryptedText text={hero.primaryCta} />
             </a>
             <a href="#why" className="inline-flex h-12 items-center justify-center rounded-full border border-foreground/12 bg-card/35 px-6 text-sm tracking-widest text-foreground/68 backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:border-foreground/25 hover:text-foreground">
-              {hero.secondaryCta}
+              <DecryptedText text={hero.secondaryCta} />
             </a>
           </div>
         </div>

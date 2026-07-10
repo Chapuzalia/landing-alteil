@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from "react"
 import type { MouseEvent, ReactNode } from "react"
 import { RevealText } from "@/components/animations/reveal-text"
+import { DecryptedText } from "@/components/animations/decrypted-text"
 import { PixelIcon } from "@/components/visuals/pixel-icon"
+import { BorderGlow } from "@/components/visuals/border-glow"
 
 type SectionIcon = "platform" | "agents" | "workflow" | "pricing"
 
@@ -37,13 +39,17 @@ export function BentoCard({ children, className = "", delay = 0 }: { children: R
   const { ref, inView } = useInView(0.1)
 
   return (
-    <div
-      ref={ref}
-      className={`group relative rounded-2xl border border-foreground/[0.07] bg-card overflow-hidden transition-all duration-700 hover:border-foreground/[0.15] hover:bg-foreground/[0.02] ${className}`}
+    <BorderGlow
+      rootRef={ref}
+      className={`group relative rounded-2xl transition-all duration-700 hover:bg-foreground/[0.02] ${className}`}
+      borderRadius={16}
+      glowRadius={32}
+      glowIntensity={0.85}
+      fillOpacity={0.22}
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(28px)",
-        transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms, border-color 0.3s ease, background-color 0.3s ease`,
+        transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms, background-color 0.3s ease`,
       }}
     >
       <div
@@ -51,7 +57,7 @@ export function BentoCard({ children, className = "", delay = 0 }: { children: R
         style={{ background: "radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgb(var(--ink-rgb) / 0.03), transparent 60%)" }}
       />
       {children}
-    </div>
+    </BorderGlow>
   )
 }
 
@@ -67,11 +73,12 @@ export function SectionHeader({ icon, tag, title, body }: { icon: SectionIcon; t
   return (
     <div className="mb-16">
       <PixelIcon type={icon} size={40} />
-      <div className="mt-4"><Tag>{tag}</Tag></div>
+      <div className="mt-4"><Tag><DecryptedText text={tag} /></Tag></div>
       <RevealText className="mt-5 text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.05]">
         {title}
       </RevealText>
-      {body && <p className="mt-6 text-sm md:text-base text-foreground/45 leading-relaxed max-w-xl">{body}</p>}
+      {body && <p className="mt-6 text-sm md:text-base text-foreground/45 leading-relaxed max-w-xl"><DecryptedText text={body} /></p>}
     </div>
   )
 }
+

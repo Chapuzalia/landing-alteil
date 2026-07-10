@@ -12,9 +12,9 @@ export type ProjectCard = {
   desc: string
   features: readonly string[]
   ideal: string
-  tags: readonly string[]
   stats: readonly { v: string; l: string }[]
   img?: string
+  imgLight?: string
 }
 
 export const defaultLanguage: Language = "es"
@@ -22,9 +22,8 @@ export const defaultLanguage: Language = "es"
 export const content = {
   es: {
     meta: {
-      title: "Alteil Solutions - SaaS a medida para empresas",
-      description:
-        "Creamos SaaS y herramientas digitales B2B para convertir procesos manuales en software claro, escalable y útil.",
+      title: "Alteil Solutions - Software a medida para empresas",
+      description: "Creamos herramientas digitales que reducen el caos operativo, protegen tus datos y ayudan a tu equipo a trabajar con más claridad.",
     },
     nav: {
       links: [
@@ -39,470 +38,108 @@ export const content = {
       closeMenu: "Cerrar menú",
     },
     hero: {
-      title: "Tecnología que se siente clara.",
-      body:
-        "Diseñamos productos digitales que ordenan el día a día y hacen que avanzar sea más fácil.",
-      primaryCta: "Hablemos de tu idea",
-      secondaryCta: "Ver el enfoque",
+      title: "Orden para avanzar.",
+      body: "Convertimos procesos dispersos en herramientas claras, seguras y fáciles de usar para que tu equipo trabaje con menos fricción y más confianza.",
+      primaryCta: "Hablemos de tu problema",
+      secondaryCta: "Ver cómo ayudamos",
       stats: [
-        { value: "B2B", label: "SaaS a medida" },
-        { value: "5", label: "productos reales" },
-        { value: "100%", label: "enfoque operativo" },
+        { value: "B2B", label: "equipos y operaciones" },
+        { value: "5", label: "problemas resueltos" },
+        { value: "100%", label: "enfoque práctico" },
       ],
-      capabilities: ["Offline", "Multiempresa", "Reservas", "Stock", "Backoffice", "Supabase"],
+      capabilities: ["Sin cortes", "Datos seguros", "Reservas claras", "Stock bajo control", "Trabajo ordenado", "Decisiones con datos"],
     },
     overview: {
       tag: "ENFOQUE",
-      title: "Construimos software alrededor de cómo trabaja tu empresa.",
+      title: "Construimos alrededor de lo que hoy te hace perder tiempo.",
       feature: {
-        title: "De WhatsApp, Excel y herramientas sueltas a una plataforma clara",
-        desc:
-          "Detectamos cuellos de botella reales y los convertimos en productos conectados a datos, con roles, permisos, backoffice, operaciones, reservas, stock u offline cuando el negocio lo necesita.",
+        title: "De mensajes, hojas sueltas y dudas constantes a una forma clara de trabajar",
+        desc: "Identificamos dónde se atasca tu operación y lo convertimos en una herramienta que da visibilidad, reduce errores, protege la información y permite que cada persona actúe sin depender de mil comprobaciones.",
       },
       cards: [
-        {
-          title: "Operativa real",
-          desc: "Partimos de ventas, turnos, recursos, reservas, inmuebles, clientes o coordinación interna.",
-        },
-        {
-          title: "Producto usable",
-          desc: "Diseñamos flujos para usuarios reales: rápidos, claros y pensados para el trabajo diario.",
-        },
-        {
-          title: "Escala desde el inicio",
-          desc: "Preparamos datos, roles, permisos, multiempresa e integraciones sin convertirlo en sobreingeniería.",
-        },
+        { title: "Menos caos diario", desc: "Ordenamos ventas, turnos, reservas, recursos, clientes o tareas internas para que el equipo sepa qué hacer y cuándo hacerlo." },
+        { title: "Más adopción", desc: "Diseñamos flujos simples para personas reales, con pantallas que ayudan a decidir rápido y no añaden trabajo innecesario." },
+        { title: "Preparado para crecer", desc: "Tu información queda bien estructurada, protegida y lista para sumar equipos, sedes, clientes o nuevas necesidades sin rehacerlo todo." },
       ],
     },
     projects: {
       tag: "PROYECTOS",
-      title: "Productos pensados para problemas operativos concretos.",
-      body:
-        "No son demos decorativas. Cada proyecto resuelve una parte real del negocio: ventas, personal, eventos, reservas, CRM, backoffice y automatización.",
+      title: "Soluciones pensadas para quitar presión al día a día.",
+      body: "Cada proyecto nace de una situación concreta: ventas que no pueden pararse, equipos que necesitan coordinarse, reservas que deben estar claras y datos que tienen que estar siempre bajo control.",
+      detailsLabel: "Ver detalles",
+      collapseLabel: "Ocultar detalles",
       items: [
-        {
-          label: "POS / TPV",
-          title: "TPV offline-first para vender rápido y controlar caja",
-          desc:
-            "Punto de venta para negocios que necesitan gestionar catálogo, tickets, pagos y caja incluso con conexión inestable, sincronizando después con Supabase.",
-          features: [
-            "Venta rápida desde catálogo",
-            "Tickets, variantes, modificadores y métodos de pago",
-            "Apertura y cierre de caja",
-            "Cola offline y sincronización posterior",
-            "Backoffice para catálogo, importación y estadísticas",
-          ],
-          ideal: "Ideal para negocios que no pueden parar ventas cuando falla la conexión.",
-          tags: ["Offline-first", "Backoffice", "Supabase"],
-          stats: [
-            { v: "TPV", l: "venta y tickets" },
-            { v: "Offline", l: "operación resiliente" },
-          ],
-        },
-        {
-          label: "Shifter",
-          title: "Planificación visual de turnos, locales y eventos",
-          desc:
-            "Herramienta para organizar trabajadores, aperturas, turnos normales y eventos especiales desde un calendario mensual claro.",
-          features: [
-            "Calendario mensual por local",
-            "Gestión de trabajadores",
-            "Asignación por día, turno y venue",
-            "Eventos especiales con personal extra",
-            "Exportación visual de la planificación",
-          ],
-          ideal: "Ideal para equipos que aún coordinan cuadrantes con mensajes sueltos y cambios manuales.",
-          tags: ["Turnos", "Gestión interna", "Calendario"],
-          stats: [
-            { v: "Locales", l: "venues y aperturas" },
-            { v: "Eventos", l: "personal extra" },
-          ],
-        },
-        {
-          label: "EventOS",
-          title: "SaaS multiempresa para eventos, recursos y stock",
-          desc:
-            "Plataforma para planificar proyectos, reservar material, evitar overbooking y coordinar project managers, stock managers y montadores.",
-          features: [
-            "Proyectos con cliente, ubicación, fechas y estado",
-            "Recursos, stock y reservas por cantidad",
-            "Prevención de solapamientos y overbooking",
-            "Documentación pública o privada por proyecto",
-            "Roles para PM, stock manager, montador, admin y superadmin",
-          ],
-          ideal: "Ideal para empresas de eventos que trabajan con material compartido, equipos móviles y documentación dispersa.",
-          tags: ["Multiempresa", "Recursos", "Roles"],
-          stats: [
-            { v: "RLS", l: "aislamiento por tenant" },
-            { v: "Stock", l: "sin overbooking" },
-          ],
-        },
-        {
-          label: "Court Manager",
-          title: "Reservas y gestión interna para clubs deportivos",
-          desc:
-            "Sistema con app para socios y backoffice para controlar pistas, horarios, disponibilidad, cobros, operaciones y partidos.",
-          features: [
-            "Reserva pública de pistas",
-            "App para socios/clientes",
-            "Vista interna para personal del club",
-            "Estados de pista, agenda, cobros y operaciones",
-            "Matchmaking, partidos y estadísticas de jugador",
-          ],
-          ideal: "Ideal para clubs que quieren dejar atrás llamadas, agendas desordenadas y reservas manuales.",
-          tags: ["Reservas", "Backoffice", "Clubes"],
-          stats: [
-            { v: "Pistas", l: "estado y agenda" },
-            { v: "Socios", l: "app cliente" },
-          ],
-        },
-        {
-          label: "CRM inmobiliario",
-          title: "CRM para inmuebles, clientes, agentes y web pública",
-          desc:
-            "CRM para agencias que necesitan centralizar inmuebles, clientes, captaciones, mensajes, calendario, agentes, portales y publicación web.",
-          features: [
-            "Gestión de inmuebles, clientes y leads",
-            "Mensajes, calendario y seguimiento comercial",
-            "Agentes, permisos y productividad",
-            "Web pública conectada al CRM",
-            "Base preparada para portales, facturación y módulos extra",
-          ],
-          ideal: "Ideal para inmobiliarias con datos repartidos entre portales, WhatsApp, Excel, calendarios y web desconectada.",
-          tags: ["CRM", "Web pública", "Backoffice"],
-          stats: [
-            { v: "Leads", l: "seguimiento comercial" },
-            { v: "Web", l: "propiedades publicadas" },
-          ],
-        },
+        { label: "POS / TPV", title: "TPV que vende aunque falle internet", desc: "Vende, cobra y registra tickets sin parones. Cuando vuelve la conexión, todo queda actualizado.", features: ["Ventas rápidas desde un catálogo claro", "Caja y pagos sin confusión", "Datos seguros aunque internet falle"], ideal: "Para negocios donde parar la caja no es una opción.", stats: [{ v: "TPV", l: "ventas ágiles" }, { v: "Siempre", l: "sin parones" }], img: "/images/projects/pos-tpv.jpg", imgLight: "/images/projects/light/pos-tpv.png" },
+        { label: "Shifter", title: "Turnos claros, equipo alineado", desc: "Planifica locales, trabajadores y eventos en un calendario simple, sin cadenas de mensajes.", features: ["Horarios visibles para todos", "Cambios y refuerzos bajo control", "Cuadrantes listos para compartir"], ideal: "Para equipos que pierden tiempo confirmando horarios.", stats: [{ v: "Locales", l: "coordinación visible" }, { v: "Eventos", l: "refuerzos claros" }], img: "/images/projects/shifter.jpg", imgLight: "/images/projects/light/shifter.png" },
+        { label: "EventOS", title: "Eventos y material bajo control", desc: "Centraliza proyectos, stock y documentos para saber qué está reservado, qué falta y quién debe actuar.", features: ["Proyectos y fechas siempre visibles", "Material reservado sin duplicidades", "Cada equipo ve lo que necesita"], ideal: "Para empresas de eventos que quieren menos llamadas y menos sorpresas.", stats: [{ v: "Seguro", l: "datos separados" }, { v: "Stock", l: "sin duplicar" }], img: "/images/projects/eventos.jpg", imgLight: "/images/projects/light/eventos.png" },
+        { label: "Court Manager", title: "Reservas sin llamadas ni líos", desc: "Socios reservan fácil y el club controla pistas, horarios, cobros y actividad diaria desde un solo lugar.", features: ["Reservas claras para socios", "Disponibilidad siempre actualizada", "Agenda y cobros en orden"], ideal: "Para clubs que quieren llenar pistas y liberar al equipo.", stats: [{ v: "Pistas", l: "ocupación clara" }, { v: "Socios", l: "mejor experiencia" }], img: "/images/projects/court-manager.jpg", imgLight: "/images/projects/light/court-manager.png" },
+        { label: "CRM inmobiliario", title: "Clientes e inmuebles sin perderse", desc: "Centraliza propiedades, leads, agentes y web para vender con más contexto y menos trabajo duplicado.", features: ["Clientes e inmuebles en un lugar", "Seguimiento comercial claro", "Web conectada al día a día"], ideal: "Para inmobiliarias con datos repartidos en demasiadas herramientas.", stats: [{ v: "Leads", l: "menos pérdidas" }, { v: "Web", l: "sin duplicar" }], img: "/images/projects/crm-inmobiliario.jpg", imgLight: "/images/projects/light/crm-inmobiliario.png" },
+        { label: "A medida", title: "La app que tu empresa necesita", desc: "Creamos una solución pensada para tus procesos, tu equipo y las decisiones que quieres tomar mejor.", features: ["Diseñada alrededor de tu operación", "Menos pasos, dudas y errores", "Preparada para crecer contigo"], ideal: "Cuando una herramienta genérica ya no encaja con tu negocio.", stats: [{ v: "A medida", l: "sin adaptarte a una plantilla" }, { v: "Claridad", l: "menos fricción" }], img: "/images/projects/custom-app.jpg", imgLight: "/images/projects/light/custom-app.png" },
       ],
     },
     team: {
       tag: "EQUIPO",
-      title: "Un equipo técnico, pequeño y cercano.",
-      body:
-        "Trabajamos junto al cliente para entender cómo funciona la empresa antes de escribir código. Esa cercanía nos permite construir productos útiles, no pantallas decorativas.",
+      title: "Un equipo cercano que entiende antes de construir.",
+      body: "Nos sentamos con quienes viven el problema para descubrir qué les frena, qué les preocupa y qué tendría que pasar para que el trabajo fuera más sencillo.",
       cards: [
-        { title: "Producto y tecnología", desc: "Combinamos criterio de producto, arquitectura y desarrollo para llegar rápido a una solución usable." },
-        { title: "Trabajo pegado al negocio", desc: "Hablamos con las personas que viven el problema para diseñar flujos que encajen con su día a día." },
-        { title: "Ejecución práctica", desc: "Priorizamos lo que desbloquea trabajo real: menos ruido, más software funcionando." },
+        { title: "Pensamiento de producto", desc: "Traducimos necesidades reales en decisiones concretas para llegar rápido a una solución que el equipo quiera usar." },
+        { title: "Pegados al negocio", desc: "Escuchamos a las personas que hacen el trabajo cada día para que la herramienta encaje con su realidad, no con una teoría." },
+        { title: "Ejecución práctica", desc: "Priorizamos lo que reduce fricción, ahorra tiempo y da tranquilidad operativa desde las primeras versiones." },
       ],
     },
     why: {
       tag: "POR QUÉ ALTEIL",
-      title: "Primero entendemos el problema. Después construimos.",
-      body:
-        "Nuestra ventaja no está en añadir más tecnología, sino en convertir procesos complejos en herramientas que los equipos quieren usar.",
+      title: "Porque una app útil no empieza en la pantalla. Empieza en tu forma de trabajar.",
+      body: "Elegirnos no va de contratar tecnología. Va de tener un equipo que entiende el problema, ordena el proceso y construye una herramienta que tu gente quiera usar.",
+      promise: "MOTIVO REAL",
+      note: "No elegimos la solución por lo que queda bien en una demo, sino por lo que ayuda a tu equipo cuando hay presión, cambios y trabajo real encima de la mesa.",
       reasons: [
-        "Construimos software útil, no funcionalidades decorativas.",
-        "Diseñamos soluciones escalables desde el inicio.",
-        "Tenemos foco en SaaS B2B, gestión operativa y plataformas internas.",
-        "Sabemos trabajar con multiempresa, roles, permisos, reservas, stock, offline y Supabase.",
-        "Pensamos en usuarios reales, no solo en una demo bonita.",
-        "Transformamos procesos manuales en herramientas digitales eficientes.",
+        "Primero escuchamos cómo trabaja tu empresa de verdad: dónde se pierde tiempo, dónde aparecen errores y qué depende demasiado de personas concretas.",
+        "Después convertimos ese caos en un flujo claro: menos pasos, menos dudas y una forma común de trabajar para todo el equipo.",
+        "Construimos pensando en adopción: cada pantalla tiene que ayudar a decidir, actuar o entender algo sin añadir más carga al día.",
+        "Protegemos la información para que cada persona vea lo que necesita, sin ruido y sin poner en riesgo datos sensibles.",
+        "Preparamos la base para crecer: más usuarios, más sedes, más clientes o nuevos procesos sin tener que empezar otra vez desde cero.",
+        "Nos quedamos cerca del impacto: si no ahorra tiempo, reduce errores o da más control, no merece ocupar espacio en la app.",
       ],
+      closing: "Te elegimos el camino corto hacia una operación más clara.",
     },
-    contact: {
-      tag: "CONTACTO",
-      title: "Explícanos qué proceso te está frenando.",
-      body:
-        "Te ayudamos a convertirlo en una solución digital clara: una herramienta interna, una plataforma de gestión o un SaaS completo.",
-      fields: {
-        name: "Nombre",
-        company: "Empresa",
-        email: "Email",
-        message: "Mensaje / problema que quieres resolver",
-      },
-      submit: "Solicitar una demo",
-      success: "Gracias. Hemos recibido tu mensaje y te contactaremos pronto.",
-    },
-    footer: {
-      rights: "© 2026 Alteil Solutions. Todos los derechos reservados.",
-      legal: ["Privacidad", "Términos", "Contacto"],
-    },
+    contact: { tag: "CONTACTO", title: "Cuéntanos qué te está frenando.", body: "Si hay un proceso que consume tiempo, genera errores o depende demasiado de personas concretas, podemos ayudarte a convertirlo en una herramienta clara.", fields: { name: "Nombre", company: "Empresa", email: "Email", message: "Mensaje / problema que quieres resolver" }, submit: "Empezar conversación", success: "Gracias. Hemos recibido tu mensaje y te contactaremos pronto." },
+    footer: { rights: "© 2026 Alteil Solutions. Todos los derechos reservados.", legal: ["Privacidad", "Términos", "Contacto"] },
   },
   en: {
-    meta: {
-      title: "Alteil Solutions - Custom SaaS for business operations",
-      description:
-        "We build B2B SaaS and digital tools that turn manual processes into clear, scalable, useful software.",
-    },
-    nav: {
-      links: [
-        { label: "Projects", href: "#projects", targetId: "projects" },
-        { label: "Team", href: "#team", targetId: "team" },
-        { label: "Why us", href: "#why", targetId: "why" },
-        { label: "Contact", href: "#contact", targetId: "contact" },
-      ],
-      cta: "Let's talk",
-      languageLabel: "Select language",
-      openMenu: "Open menu",
-      closeMenu: "Close menu",
-    },
-    hero: {
-      title: "Technology that feels clear.",
-      body:
-        "We design digital products that bring clarity to everyday work and make progress feel easier.",
-      primaryCta: "Tell us your idea",
-      secondaryCta: "See our approach",
-      stats: [
-        { value: "B2B", label: "custom SaaS" },
-        { value: "5", label: "real products" },
-        { value: "100%", label: "operations focused" },
-      ],
-      capabilities: ["Offline", "Multi-tenant", "Bookings", "Stock", "Backoffice", "Supabase"],
-    },
-    overview: {
-      tag: "APPROACH",
-      title: "We build software around how your company works.",
-      feature: {
-        title: "From WhatsApp, spreadsheets and scattered tools to one clear platform",
-        desc:
-          "We identify real bottlenecks and turn them into data-connected products with roles, permissions, backoffice, operations, bookings, stock or offline support when the business needs it.",
-      },
-      cards: [
-        { title: "Real operations", desc: "We start from sales, shifts, resources, bookings, properties, clients or internal coordination." },
-        { title: "Usable product", desc: "We design flows for real users: fast, clear and built for daily work." },
-        { title: "Built to scale", desc: "We prepare data, roles, permissions, multi-tenancy and integrations without overengineering." },
-      ],
-    },
-    projects: {
-      tag: "PROJECTS",
-      title: "Products built for concrete operational problems.",
-      body:
-        "These are not decorative demos. Each project solves a real business area: sales, workforce, events, bookings, CRM, backoffice and automation.",
-      items: [
-        {
-          label: "POS",
-          title: "Offline-first POS for fast sales and cash control",
-          desc: "Point of sale for businesses that need catalog, receipts, payments and cash sessions to keep working even with unstable connectivity, then sync with Supabase.",
-          features: ["Fast catalog sales", "Receipts, variants, modifiers and payment methods", "Cash opening and closing", "Offline queue and later sync", "Backoffice for catalog, import and statistics"],
-          ideal: "Ideal for businesses that cannot stop selling when the connection fails.",
-          tags: ["Offline-first", "Backoffice", "Supabase"],
-          stats: [{ v: "POS", l: "sales and receipts" }, { v: "Offline", l: "resilient operation" }],
-        },
-        {
-          label: "Shifter",
-          title: "Visual planning for shifts, venues and special events",
-          desc: "A tool to organize workers, openings, regular shifts and special events from a clear monthly calendar.",
-          features: ["Monthly calendar by venue", "Worker management", "Assignment by day, shift and venue", "Special events with extra staff", "Visual planning export"],
-          ideal: "Ideal for teams still coordinating schedules with loose messages and manual changes.",
-          tags: ["Shifts", "Internal ops", "Calendar"],
-          stats: [{ v: "Venues", l: "openings and shifts" }, { v: "Events", l: "extra staff" }],
-        },
-        {
-          label: "EventOS",
-          title: "Multi-tenant SaaS for events, resources and stock",
-          desc: "Platform to plan projects, reserve equipment, prevent overbooking and coordinate project managers, stock managers and installers.",
-          features: ["Projects with client, location, dates and status", "Resources, stock and quantity-based bookings", "Overlap and overbooking prevention", "Public or private project documents", "Roles for PM, stock manager, installer, admin and superadmin"],
-          ideal: "Ideal for event companies working with shared equipment, mobile teams and scattered documentation.",
-          tags: ["Multi-tenant", "Resources", "Roles"],
-          stats: [{ v: "RLS", l: "tenant isolation" }, { v: "Stock", l: "no overbooking" }],
-        },
-        {
-          label: "Court Manager",
-          title: "Bookings and internal management for sports clubs",
-          desc: "System with a member app and backoffice to manage courts, schedules, availability, payments, operations and matches.",
-          features: ["Public court booking", "App for members and clients", "Internal view for club staff", "Court states, agenda, payments and operations", "Matchmaking, matches and player statistics"],
-          ideal: "Ideal for clubs that want to move away from calls, messy agendas and manual bookings.",
-          tags: ["Bookings", "Backoffice", "Clubs"],
-          stats: [{ v: "Courts", l: "status and agenda" }, { v: "Members", l: "client app" }],
-        },
-        {
-          label: "Real estate CRM",
-          title: "CRM for properties, clients, agents and public web",
-          desc: "CRM for agencies that need to centralize properties, clients, listings, messages, calendar, agents, portals and website publishing.",
-          features: ["Property, client and lead management", "Messages, calendar and sales follow-up", "Agents, permissions and productivity", "Public website connected to the CRM", "Foundation for portals, billing and extra modules"],
-          ideal: "Ideal for agencies with data spread across portals, WhatsApp, spreadsheets, calendars and a disconnected website.",
-          tags: ["CRM", "Public web", "Backoffice"],
-          stats: [{ v: "Leads", l: "sales follow-up" }, { v: "Web", l: "published listings" }],
-        },
-      ],
-    },
-    team: {
-      tag: "TEAM",
-      title: "A small, technical and close team.",
-      body:
-        "We work with clients to understand how the company operates before writing code. That closeness helps us build useful products, not decorative screens.",
-      cards: [
-        { title: "Product and technology", desc: "We combine product judgment, architecture and development to reach a usable solution quickly." },
-        { title: "Close to the business", desc: "We speak with the people who live the problem so the workflows fit their day-to-day work." },
-        { title: "Practical execution", desc: "We prioritize what unlocks real work: less noise, more working software." },
-      ],
-    },
-    why: {
-      tag: "WHY ALTEIL",
-      title: "We understand the problem first. Then we build.",
-      body:
-        "Our value is not adding more technology, but turning complex processes into tools teams actually want to use.",
-      reasons: [
-        "We build useful software, not decorative features.",
-        "We design scalable solutions from day one.",
-        "We focus on B2B SaaS, operational management and internal platforms.",
-        "We know multi-tenancy, roles, permissions, bookings, stock, offline workflows and Supabase.",
-        "We design for real users, not just polished demos.",
-        "We turn manual processes into efficient digital tools.",
-      ],
-    },
-    contact: {
-      tag: "CONTACT",
-      title: "Tell us what process is slowing you down.",
-      body:
-        "We will help you turn it into a clear digital solution: an internal tool, a management platform or a complete SaaS product.",
-      fields: {
-        name: "Name",
-        company: "Company",
-        email: "Email",
-        message: "Message / problem you want to solve",
-      },
-      submit: "Request a demo",
-      success: "Thanks. We received your message and will contact you soon.",
-    },
-    footer: {
-      rights: "© 2026 Alteil Solutions. All rights reserved.",
-      legal: ["Privacy", "Terms", "Contact"],
-    },
+    meta: { title: "Alteil Solutions - Custom software for business teams", description: "We build digital tools that reduce operational chaos, protect your data and help teams work with more clarity." },
+    nav: { links: [{ label: "Projects", href: "#projects", targetId: "projects" }, { label: "Team", href: "#team", targetId: "team" }, { label: "Why us", href: "#why", targetId: "why" }, { label: "Contact", href: "#contact", targetId: "contact" }], cta: "Let's talk", languageLabel: "Select language", openMenu: "Open menu", closeMenu: "Close menu" },
+    hero: { title: "Clarity to move forward.", body: "We turn scattered processes into clear, secure and easy-to-use tools so your team can work with less friction and more confidence.", primaryCta: "Talk about your problem", secondaryCta: "See how we help", stats: [{ value: "B2B", label: "teams and operations" }, { value: "5", label: "problems solved" }, { value: "100%", label: "practical focus" }], capabilities: ["No downtime", "Secure data", "Clear bookings", "Stock control", "Organized work", "Data-led decisions"] },
+    overview: { tag: "APPROACH", title: "We build around what wastes your time today.", feature: { title: "From messages, loose spreadsheets and constant doubt to one clear way of working", desc: "We find where your operation gets stuck and turn it into a tool that gives visibility, reduces errors, protects information and lets each person act without endless checks." }, cards: [{ title: "Less daily chaos", desc: "We organize sales, shifts, bookings, resources, clients or internal tasks so teams know what to do and when." }, { title: "Higher adoption", desc: "We design simple flows for real people, with screens that help them decide quickly instead of creating extra work." }, { title: "Ready to grow", desc: "Your information is structured, protected and ready for more teams, locations, clients or new needs." }] },
+    projects: { tag: "PROJECTS", title: "Solutions designed to take pressure off daily work.", body: "Every project starts from a concrete situation: sales that cannot stop, teams that need coordination, bookings that must be clear and data that has to stay under control.", detailsLabel: "View details", collapseLabel: "Hide details", items: [
+      { label: "POS", title: "A POS that keeps selling offline", desc: "Sell, charge and register receipts without stops. When connection returns, everything updates.", features: ["Fast sales from a clear catalog", "Simple cash and payment control", "Secure data even when internet fails"], ideal: "For businesses where stopping the till is not an option.", stats: [{ v: "POS", l: "faster sales" }, { v: "Always", l: "no stops" }], img: "/images/projects/pos-tpv.jpg", imgLight: "/images/projects/light/pos-tpv.png" },
+      { label: "Shifter", title: "Clear shifts, aligned teams", desc: "Plan venues, workers and events in one simple calendar, without endless message chains.", features: ["Schedules everyone can see", "Changes and extra staff under control", "Plans ready to share"], ideal: "For teams that lose time confirming schedules.", stats: [{ v: "Venues", l: "visible coordination" }, { v: "Events", l: "clear staffing" }], img: "/images/projects/shifter.jpg", imgLight: "/images/projects/light/shifter.png" },
+      { label: "EventOS", title: "Events and equipment under control", desc: "Centralize projects, stock and documents so everyone knows what is booked, missing and next.", features: ["Projects and dates always visible", "Equipment booked without duplicates", "Each team sees what matters"], ideal: "For event companies that want fewer calls and fewer surprises.", stats: [{ v: "Secure", l: "separated data" }, { v: "Stock", l: "no duplicates" }], img: "/images/projects/eventos.jpg", imgLight: "/images/projects/light/eventos.png" },
+      { label: "Court Manager", title: "Bookings without calls or confusion", desc: "Members book easily while the club controls courts, schedules, payments and daily activity in one place.", features: ["Clear bookings for members", "Availability always updated", "Agenda and payments in order"], ideal: "For clubs that want fuller courts and less admin work.", stats: [{ v: "Courts", l: "clear occupancy" }, { v: "Members", l: "better experience" }], img: "/images/projects/court-manager.jpg", imgLight: "/images/projects/light/court-manager.png" },
+      { label: "Real estate CRM", title: "No lost clients or properties", desc: "Centralize properties, leads, agents and website publishing to sell with context and less duplicate work.", features: ["Clients and properties in one place", "Clear sales follow-up", "Website connected to daily work"], ideal: "For agencies with data spread across too many tools.", stats: [{ v: "Leads", l: "fewer losses" }, { v: "Web", l: "no duplicates" }], img: "/images/projects/crm-inmobiliario.jpg", imgLight: "/images/projects/light/crm-inmobiliario.png" },
+      { label: "Custom app", title: "The app your company needs", desc: "We create a solution around your processes, your team and the decisions you want to make better.", features: ["Designed around your operation", "Fewer steps, doubts and mistakes", "Ready to grow with you"], ideal: "When generic tools no longer fit your business.", stats: [{ v: "Custom", l: "no forced template" }, { v: "Clarity", l: "less friction" }], img: "/images/projects/custom-app.jpg", imgLight: "/images/projects/light/custom-app.png" },
+    ] },
+    team: { tag: "TEAM", title: "A close team that understands before building.", body: "We sit with the people living the problem to learn what slows them down, what worries them and what would make work feel simpler.", cards: [{ title: "Product thinking", desc: "We turn real needs into concrete decisions to reach a solution the team actually wants to use." }, { title: "Close to the business", desc: "We listen to the people doing the work every day so the tool fits reality, not a theory." }, { title: "Practical execution", desc: "We prioritize what reduces friction, saves time and brings operational peace of mind from the first versions." }] },
+    why: { tag: "WHY ALTEIL", title: "Because a useful app does not start on a screen. It starts with how your team works.", body: "Choosing us is not about buying technology. It is about having a team that understands the problem, organizes the process and builds a tool people actually want to use.", promise: "REAL REASON", note: "We do not choose the solution because it looks good in a demo, but because it helps your team when there is pressure, change and real work on the table.", reasons: ["First we listen to how your company really works: where time is lost, where mistakes appear and what depends too much on specific people.", "Then we turn that chaos into a clear flow: fewer steps, fewer doubts and one shared way of working for the whole team.", "We build for adoption: every screen has to help people decide, act or understand something without adding more daily load.", "We protect information so each person sees what they need, without noise and without putting sensitive data at risk.", "We prepare the base to grow: more users, more locations, more clients or new processes without starting again from zero.", "We stay close to impact: if it does not save time, reduce mistakes or give more control, it does not deserve space in the app."], closing: "We choose the shorter path to a clearer operation." },
+    contact: { tag: "CONTACT", title: "Tell us what is slowing you down.", body: "If a process consumes time, creates mistakes or depends too much on specific people, we can help turn it into a clear tool.", fields: { name: "Name", company: "Company", email: "Email", message: "Message / problem you want to solve" }, submit: "Start the conversation", success: "Thanks. We received your message and will contact you soon." },
+    footer: { rights: "© 2026 Alteil Solutions. All rights reserved.", legal: ["Privacy", "Terms", "Contact"] },
   },
   ca: {
-    meta: {
-      title: "Alteil Solutions - SaaS a mida per a empreses",
-      description:
-        "Creem SaaS i eines digitals B2B per convertir processos manuals en programari clar, escalable i útil.",
-    },
-    nav: {
-      links: [
-        { label: "Projectes", href: "#projects", targetId: "projects" },
-        { label: "Equip", href: "#team", targetId: "team" },
-        { label: "Per què", href: "#why", targetId: "why" },
-        { label: "Contacte", href: "#contact", targetId: "contact" },
-      ],
-      cta: "Parlem-ne",
-      languageLabel: "Selecciona l'idioma",
-      openMenu: "Obrir menú",
-      closeMenu: "Tancar menú",
-    },
-    hero: {
-      title: "Tecnologia que se sent clara.",
-      body:
-        "Dissenyem productes digitals que ordenen el dia a dia i fan que avançar sigui més fàcil.",
-      primaryCta: "Parlem de la teva idea",
-      secondaryCta: "Veure l'enfocament",
-      stats: [
-        { value: "B2B", label: "SaaS a mida" },
-        { value: "5", label: "productes reals" },
-        { value: "100%", label: "focus operatiu" },
-      ],
-      capabilities: ["Offline", "Multiempresa", "Reserves", "Estoc", "Backoffice", "Supabase"],
-    },
-    overview: {
-      tag: "ENFOCAMENT",
-      title: "Construïm programari al voltant de com treballa la teva empresa.",
-      feature: {
-        title: "De WhatsApp, Excel i eines disperses a una plataforma clara",
-        desc:
-          "Detectem colls d'ampolla reals i els convertim en productes connectats a dades, amb rols, permisos, backoffice, operacions, reserves, estoc o offline quan el negoci ho necessita.",
-      },
-      cards: [
-        { title: "Operativa real", desc: "Partim de vendes, torns, recursos, reserves, immobles, clients o coordinació interna." },
-        { title: "Producte usable", desc: "Dissenyem fluxos per a usuaris reals: ràpids, clars i pensats per al treball diari." },
-        { title: "Escalable des del principi", desc: "Preparem dades, rols, permisos, multiempresa i integracions sense sobreenginyeria." },
-      ],
-    },
-    projects: {
-      tag: "PROJECTES",
-      title: "Productes pensats per a problemes operatius concrets.",
-      body:
-        "No són demos decoratives. Cada projecte resol una part real del negoci: vendes, personal, esdeveniments, reserves, CRM, backoffice i automatització.",
-      items: [
-        {
-          label: "POS / TPV",
-          title: "TPV offline-first per vendre ràpid i controlar caixa",
-          desc: "Punt de venda per a negocis que necessiten gestionar catàleg, tiquets, pagaments i caixa fins i tot amb connexió inestable, sincronitzant després amb Supabase.",
-          features: ["Venda ràpida des del catàleg", "Tiquets, variants, modificadors i mètodes de pagament", "Obertura i tancament de caixa", "Cua offline i sincronització posterior", "Backoffice per a catàleg, importació i estadístiques"],
-          ideal: "Ideal per a negocis que no poden aturar vendes quan falla la connexió.",
-          tags: ["Offline-first", "Backoffice", "Supabase"],
-          stats: [{ v: "TPV", l: "venda i tiquets" }, { v: "Offline", l: "operació resilient" }],
-        },
-        {
-          label: "Shifter",
-          title: "Planificació visual de torns, locals i esdeveniments",
-          desc: "Eina per organitzar treballadors, obertures, torns normals i esdeveniments especials des d'un calendari mensual clar.",
-          features: ["Calendari mensual per local", "Gestió de treballadors", "Assignació per dia, torn i venue", "Esdeveniments especials amb personal extra", "Exportació visual de la planificació"],
-          ideal: "Ideal per a equips que encara coordinen quadrants amb missatges solts i canvis manuals.",
-          tags: ["Torns", "Gestió interna", "Calendari"],
-          stats: [{ v: "Locals", l: "obertures i torns" }, { v: "Events", l: "personal extra" }],
-        },
-        {
-          label: "EventOS",
-          title: "SaaS multiempresa per a esdeveniments, recursos i estoc",
-          desc: "Plataforma per planificar projectes, reservar material, evitar overbooking i coordinar project managers, stock managers i muntadors.",
-          features: ["Projectes amb client, ubicació, dates i estat", "Recursos, estoc i reserves per quantitat", "Prevenció de solapaments i overbooking", "Documentació pública o privada per projecte", "Rols per a PM, stock manager, muntador, admin i superadmin"],
-          ideal: "Ideal per a empreses d'esdeveniments amb material compartit, equips mòbils i documentació dispersa.",
-          tags: ["Multiempresa", "Recursos", "Rols"],
-          stats: [{ v: "RLS", l: "aïllament per tenant" }, { v: "Estoc", l: "sense overbooking" }],
-        },
-        {
-          label: "Court Manager",
-          title: "Reserves i gestió interna per a clubs esportius",
-          desc: "Sistema amb app per a socis i backoffice per controlar pistes, horaris, disponibilitat, cobraments, operacions i partits.",
-          features: ["Reserva pública de pistes", "App per a socis i clients", "Vista interna per al personal del club", "Estats de pista, agenda, cobraments i operacions", "Matchmaking, partits i estadístiques de jugador"],
-          ideal: "Ideal per a clubs que volen deixar enrere trucades, agendes desordenades i reserves manuals.",
-          tags: ["Reserves", "Backoffice", "Clubs"],
-          stats: [{ v: "Pistes", l: "estat i agenda" }, { v: "Socis", l: "app client" }],
-        },
-        {
-          label: "CRM immobiliari",
-          title: "CRM per a immobles, clients, agents i web pública",
-          desc: "CRM per a agències que necessiten centralitzar immobles, clients, captacions, missatges, calendari, agents, portals i publicació web.",
-          features: ["Gestió d'immobles, clients i leads", "Missatges, calendari i seguiment comercial", "Agents, permisos i productivitat", "Web pública connectada al CRM", "Base per a portals, facturació i mòduls extra"],
-          ideal: "Ideal per a immobiliàries amb dades repartides entre portals, WhatsApp, Excel, calendaris i web desconnectada.",
-          tags: ["CRM", "Web pública", "Backoffice"],
-          stats: [{ v: "Leads", l: "seguiment comercial" }, { v: "Web", l: "immobles publicats" }],
-        },
-      ],
-    },
-    team: {
-      tag: "EQUIP",
-      title: "Un equip tècnic, petit i proper.",
-      body:
-        "Treballem amb el client per entendre com funciona l'empresa abans d'escriure codi. Aquesta proximitat ens permet construir productes útils, no pantalles decoratives.",
-      cards: [
-        { title: "Producte i tecnologia", desc: "Combinem criteri de producte, arquitectura i desenvolupament per arribar ràpid a una solució usable." },
-        { title: "A prop del negoci", desc: "Parlem amb les persones que viuen el problema perquè els fluxos encaixin amb el seu dia a dia." },
-        { title: "Execució pràctica", desc: "Prioritzem allò que desbloqueja feina real: menys soroll, més programari funcionant." },
-      ],
-    },
-    why: {
-      tag: "PER QUÈ ALTEIL",
-      title: "Primer entenem el problema. Després construïm.",
-      body:
-        "El nostre valor no és afegir més tecnologia, sinó convertir processos complexos en eines que els equips vulguin utilitzar.",
-      reasons: [
-        "Construïm programari útil, no funcionalitats decoratives.",
-        "Dissenyem solucions escalables des del principi.",
-        "Tenim focus en SaaS B2B, gestió operativa i plataformes internes.",
-        "Sabem treballar amb multiempresa, rols, permisos, reserves, estoc, offline i Supabase.",
-        "Pensem en usuaris reals, no només en una demo bonica.",
-        "Transformem processos manuals en eines digitals eficients.",
-      ],
-    },
-    contact: {
-      tag: "CONTACTE",
-      title: "Explica'ns quin procés t'està frenant.",
-      body:
-        "T'ajudem a convertir-lo en una solució digital clara: una eina interna, una plataforma de gestió o un SaaS complet.",
-      fields: {
-        name: "Nom",
-        company: "Empresa",
-        email: "Email",
-        message: "Missatge / problema que vols resoldre",
-      },
-      submit: "Sol·licitar una demo",
-      success: "Gràcies. Hem rebut el teu missatge i et contactarem aviat.",
-    },
-    footer: {
-      rights: "© 2026 Alteil Solutions. Tots els drets reservats.",
-      legal: ["Privacitat", "Termes", "Contacte"],
-    },
+    meta: { title: "Alteil Solutions - Programari a mida per a empreses", description: "Creem eines digitals que redueixen el caos operatiu, protegeixen les dades i ajuden els equips a treballar amb més claredat." },
+    nav: { links: [{ label: "Projectes", href: "#projects", targetId: "projects" }, { label: "Equip", href: "#team", targetId: "team" }, { label: "Per què", href: "#why", targetId: "why" }, { label: "Contacte", href: "#contact", targetId: "contact" }], cta: "Parlem-ne", languageLabel: "Selecciona l'idioma", openMenu: "Obrir menú", closeMenu: "Tancar menú" },
+    hero: { title: "Ordre per avançar.", body: "Convertim processos dispersos en eines clares, segures i fàcils d'utilitzar perquè el teu equip treballi amb menys fricció i més confiança.", primaryCta: "Parlem del teu problema", secondaryCta: "Veure com ajudem", stats: [{ value: "B2B", label: "equips i operacions" }, { value: "5", label: "problemes resolts" }, { value: "100%", label: "enfocament pràctic" }], capabilities: ["Sense talls", "Dades segures", "Reserves clares", "Estoc controlat", "Feina ordenada", "Decisions amb dades"] },
+    overview: { tag: "ENFOCAMENT", title: "Construïm al voltant del que avui et fa perdre temps.", feature: { title: "De missatges, fulls solts i dubtes constants a una manera clara de treballar", desc: "Detectem on s'encalla la teva operativa i ho convertim en una eina que dona visibilitat, redueix errors, protegeix la informació i permet que cada persona actuï sense mil comprovacions." }, cards: [{ title: "Menys caos diari", desc: "Ordenem vendes, torns, reserves, recursos, clients o tasques internes perquè l'equip sàpiga què ha de fer i quan." }, { title: "Més adopció", desc: "Dissenyem fluxos simples per a persones reals, amb pantalles que ajuden a decidir ràpid i no afegeixen feina innecessària." }, { title: "Preparat per créixer", desc: "La teva informació queda ben estructurada, protegida i preparada per sumar equips, seus, clients o noves necessitats." }] },
+    projects: { tag: "PROJECTES", title: "Solucions pensades per treure pressió al dia a dia.", body: "Cada projecte neix d'una situació concreta: vendes que no poden parar, equips que necessiten coordinar-se, reserves que han d'estar clares i dades que han d'estar sempre sota control.", detailsLabel: "Veure detalls", collapseLabel: "Amagar detalls", items: [
+      { label: "POS / TPV", title: "Un TPV que ven encara que falli internet", desc: "Ven, cobra i registra tiquets sense aturades. Quan torna la connexió, tot queda actualitzat.", features: ["Vendes ràpides des d'un catàleg clar", "Caixa i pagaments sense confusió", "Dades segures encara que internet falli"], ideal: "Per a negocis on aturar la caixa no és una opció.", stats: [{ v: "TPV", l: "vendes àgils" }, { v: "Sempre", l: "sense parades" }], img: "/images/projects/pos-tpv.jpg", imgLight: "/images/projects/light/pos-tpv.png" },
+      { label: "Shifter", title: "Torns clars, equip alineat", desc: "Planifica locals, treballadors i esdeveniments en un calendari simple, sense cadenes de missatges.", features: ["Horaris visibles per a tothom", "Canvis i reforços sota control", "Quadrants llestos per compartir"], ideal: "Per a equips que perden temps confirmant horaris.", stats: [{ v: "Locals", l: "coordinació visible" }, { v: "Events", l: "reforços clars" }], img: "/images/projects/shifter.jpg", imgLight: "/images/projects/light/shifter.png" },
+      { label: "EventOS", title: "Esdeveniments i material sota control", desc: "Centralitza projectes, estoc i documents per saber què està reservat, què falta i qui ha d'actuar.", features: ["Projectes i dates sempre visibles", "Material reservat sense duplicats", "Cada equip veu el que necessita"], ideal: "Per a empreses d'esdeveniments que volen menys trucades i menys sorpreses.", stats: [{ v: "Segur", l: "dades separades" }, { v: "Estoc", l: "sense duplicar" }], img: "/images/projects/eventos.jpg", imgLight: "/images/projects/light/eventos.png" },
+      { label: "Court Manager", title: "Reserves sense trucades ni embolics", desc: "Els socis reserven fàcil i el club controla pistes, horaris, cobraments i activitat en un sol lloc.", features: ["Reserves clares per a socis", "Disponibilitat sempre actualitzada", "Agenda i cobraments en ordre"], ideal: "Per a clubs que volen omplir pistes i reduir gestió.", stats: [{ v: "Pistes", l: "ocupació clara" }, { v: "Socis", l: "millor experiència" }], img: "/images/projects/court-manager.jpg", imgLight: "/images/projects/light/court-manager.png" },
+      { label: "CRM immobiliari", title: "Clients i immobles sense perdre's", desc: "Centralitza propietats, leads, agents i web per vendre amb més context i menys feina duplicada.", features: ["Clients i immobles en un lloc", "Seguiment comercial clar", "Web connectada al dia a dia"], ideal: "Per a immobiliàries amb dades repartides en massa eines.", stats: [{ v: "Leads", l: "menys pèrdues" }, { v: "Web", l: "sense duplicar" }], img: "/images/projects/crm-inmobiliario.jpg", imgLight: "/images/projects/light/crm-inmobiliario.png" },
+      { label: "A mida", title: "L'app que la teva empresa necessita", desc: "Creem una solució pensada pels teus processos, el teu equip i les decisions que vols prendre millor.", features: ["Dissenyada al voltant de la teva operativa", "Menys passos, dubtes i errors", "Preparada per créixer amb tu"], ideal: "Quan una eina genèrica ja no encaixa amb el teu negoci.", stats: [{ v: "A mida", l: "sense plantilla forçada" }, { v: "Claredat", l: "menys fricció" }], img: "/images/projects/custom-app.jpg", imgLight: "/images/projects/light/custom-app.png" },
+    ] },
+    team: { tag: "EQUIP", title: "Un equip proper que entén abans de construir.", body: "Ens asseiem amb qui viu el problema per descobrir què els frena, què els preocupa i què hauria de passar perquè la feina fos més senzilla.", cards: [{ title: "Pensament de producte", desc: "Traduïm necessitats reals en decisions concretes per arribar ràpid a una solució que l'equip vulgui utilitzar." }, { title: "A prop del negoci", desc: "Escoltem les persones que fan la feina cada dia perquè l'eina encaixi amb la seva realitat, no amb una teoria." }, { title: "Execució pràctica", desc: "Prioritzem allò que redueix fricció, estalvia temps i dona tranquil·litat operativa des de les primeres versions." }] },
+    why: { tag: "PER QUÈ ALTEIL", title: "Perquè una app útil no comença a la pantalla. Comença en la teva manera de treballar.", body: "Triar-nos no va de contractar tecnologia. Va de tenir un equip que entén el problema, ordena el procés i construeix una eina que la teva gent vulgui utilitzar.", promise: "MOTIU REAL", note: "No triem la solució pel que queda bé en una demo, sinó pel que ajuda el teu equip quan hi ha pressió, canvis i feina real sobre la taula.", reasons: ["Primer escoltem com treballa realment la teva empresa: on es perd temps, on apareixen errors i què depèn massa de persones concretes.", "Després convertim aquest caos en un flux clar: menys passos, menys dubtes i una manera comuna de treballar per a tot l'equip.", "Construïm pensant en l'adopció: cada pantalla ha d'ajudar a decidir, actuar o entendre alguna cosa sense afegir més càrrega al dia.", "Protegim la informació perquè cada persona vegi el que necessita, sense soroll i sense posar en risc dades sensibles.", "Preparem la base per créixer: més usuaris, més seus, més clients o nous processos sense haver de començar de zero.", "Ens mantenim a prop de l'impacte: si no estalvia temps, redueix errors o dona més control, no mereix ocupar espai a l'app."], closing: "Triem el camí curt cap a una operativa més clara." },
+    contact: { tag: "CONTACTE", title: "Explica'ns què t'està frenant.", body: "Si hi ha un procés que consumeix temps, genera errors o depèn massa de persones concretes, podem ajudar-te a convertir-lo en una eina clara.", fields: { name: "Nom", company: "Empresa", email: "Email", message: "Missatge / problema que vols resoldre" }, submit: "Començar conversa", success: "Gràcies. Hem rebut el teu missatge i et contactarem aviat." },
+    footer: { rights: "© 2026 Alteil Solutions. Tots els drets reservats.", legal: ["Privacitat", "Termes", "Contacte"] },
   },
 } as const

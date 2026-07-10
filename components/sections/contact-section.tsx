@@ -1,5 +1,6 @@
 "use client"
 
+import { DecryptedText } from "@/components/animations/decrypted-text"
 import { BentoCard, Tag } from "@/components/sections/section-primitives"
 
 type ContactContent = {
@@ -33,8 +34,8 @@ export function ContactSection({
       <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1fr] gap-12 items-start">
         <div>
           <Tag>{contact.tag}</Tag>
-          <h2 className="font-heading mt-5 text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.05] mb-6">{contact.title}</h2>
-          <p className="text-sm md:text-base text-foreground/45 leading-relaxed max-w-md">{contact.body}</p>
+          <h2 className="font-heading mt-5 text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.05] mb-6"><DecryptedText text={contact.title} /></h2>
+          <p className="text-sm md:text-base text-foreground/45 leading-relaxed max-w-md"><DecryptedText text={contact.body} /></p>
         </div>
         <BentoCard className="p-6 md:p-8" delay={0}>
           {!submitted ? (
@@ -78,3 +79,4 @@ export function ContactSection({
     </section>
   )
 }
+

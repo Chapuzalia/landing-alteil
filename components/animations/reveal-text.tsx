@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { DecryptedText } from "@/components/animations/decrypted-text"
 
 // Splits text into words and reveals each with staggered opacity+blur+translateY
 // matching the AGENTIC intro animation style.
@@ -80,10 +81,11 @@ export function RevealText({
                 : "none",
             }}
           >
-            {word}
+            <DecryptedText text={word} />
           </span>
         )
       })}
     </Tag>
   )
 }
+

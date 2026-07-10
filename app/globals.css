@@ -141,11 +141,7 @@
 
 
 .alteil-mark-main {
-  fill: #0f172a;
-}
-
-.dark .alteil-mark-main {
-  fill: #f5f6f8;
+  fill: currentColor;
 }
 @layer utilities {
   .font-custom-heading {

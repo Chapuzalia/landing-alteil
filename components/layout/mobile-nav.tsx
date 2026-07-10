@@ -4,6 +4,7 @@ import type React from "react"
 import { useEffect, useState } from "react"
 import { ArrowRight, ArrowUpRight, ChevronDown, Menu, X } from "lucide-react"
 import { AlteilLogo } from "@/components/brand/alteil-logo"
+import { DecryptedText } from "@/components/animations/decrypted-text"
 import { ThemeToggle } from "@/components/theme/theme-toggle"
 import { languages, type Language } from "@/lib/content"
 
@@ -109,7 +110,7 @@ export function MobileNav({
                 onClick={(e) => handleSmoothScroll(e, link.targetId)}
                 className={`text-sm transition-colors cursor-pointer ${navTextClass}`}
               >
-                {link.label}
+                <DecryptedText text={link.label} />
               </a>
             ))}
           </nav>
@@ -161,7 +162,7 @@ export function MobileNav({
             <button className={`relative flex items-center gap-0 border ${actionBorderClass} rounded-full pl-5 pr-1 py-1 transition-all duration-300 group overflow-hidden`}>
               <span className={`absolute inset-0 rounded-full scale-x-0 origin-right ${actionFillClass} group-hover:scale-x-100 transition-transform duration-300`} />
               <span className={`text-sm pr-3 relative z-10 ${actionTextClass} transition-colors duration-300`}>
-                {cta}
+                <DecryptedText text={cta} />
               </span>
               <span className="w-8 h-8 rounded-full flex items-center justify-center relative z-10">
                 <ArrowRight className={`w-4 h-4 ${isGlass ? "text-black" : "text-foreground"} group-hover:opacity-0 absolute transition-opacity duration-300`} />
@@ -193,7 +194,7 @@ export function MobileNav({
                 onClick={(e) => handleSmoothScroll(e, link.targetId)}
                 className="text-sm text-black/60 hover:text-black transition-colors cursor-pointer"
               >
-                {link.label}
+                <DecryptedText text={link.label} />
               </a>
             ))}
 
@@ -220,7 +221,7 @@ export function MobileNav({
               <button className="relative flex items-center gap-0 border border-black/15 rounded-full pl-5 pr-1 py-1 w-fit transition-all duration-300 group overflow-hidden">
                 <span className="absolute inset-0 rounded-full scale-x-0 origin-right bg-black group-hover:scale-x-100 transition-transform duration-300" />
                 <span className="text-sm pr-3 relative z-10 text-black group-hover:text-white transition-colors duration-300">
-                  {cta}
+                  <DecryptedText text={cta} />
                 </span>
                 <span className="w-8 h-8 rounded-full flex items-center justify-center relative z-10">
                   <ArrowRight className="w-4 h-4 text-black group-hover:opacity-0 absolute transition-opacity duration-300" />
@@ -234,3 +235,4 @@ export function MobileNav({
     </header>
   )
 }
+

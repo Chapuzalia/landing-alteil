@@ -1,5 +1,6 @@
 "use client"
 
+
 export function CapabilitiesMarquee({ capabilities }: { capabilities: readonly string[] }) {
   return (
     <section className="py-0 border-y border-foreground/[0.06] overflow-hidden select-none">
