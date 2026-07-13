@@ -159,7 +159,11 @@ export function MobileNav({
               )}
             </div>
             <ThemeToggle className={isGlass ? "border-black/10 text-black hover:text-black hover:border-black/20 hover:bg-black/4" : ""} />
-            <button className={`relative flex items-center gap-0 border ${actionBorderClass} rounded-full pl-5 pr-1 py-1 transition-all duration-300 group overflow-hidden`}>
+            <a
+              href="#contact"
+              onClick={(e) => handleSmoothScroll(e, "contact")}
+              className={`relative flex items-center gap-0 border ${actionBorderClass} rounded-full pl-5 pr-1 py-1 transition-all duration-300 group overflow-hidden`}
+            >
               <span className={`absolute inset-0 rounded-full scale-x-0 origin-right ${actionFillClass} group-hover:scale-x-100 transition-transform duration-300`} />
               <span className={`text-sm pr-3 relative z-10 ${actionTextClass} transition-colors duration-300`}>
                 <DecryptedText text={cta} />
@@ -168,7 +172,7 @@ export function MobileNav({
                 <ArrowRight className={`w-4 h-4 ${isGlass ? "text-black" : "text-foreground"} group-hover:opacity-0 absolute transition-opacity duration-300`} />
                 <ArrowUpRight className={`w-4 h-4 ${actionIconClass} opacity-0 group-hover:opacity-100 transition-all duration-300`} />
               </span>
-            </button>
+            </a>
           </div>
 
           <button
@@ -218,7 +222,11 @@ export function MobileNav({
               <div className="w-fit">
                 <ThemeToggle className="border-black/10 text-black hover:text-black hover:border-black/20 hover:bg-black/4" />
               </div>
-              <button className="relative flex items-center gap-0 border border-black/15 rounded-full pl-5 pr-1 py-1 w-fit transition-all duration-300 group overflow-hidden">
+              <a
+                href="#contact"
+                onClick={(e) => handleSmoothScroll(e, "contact")}
+                className="relative flex items-center gap-0 border border-black/15 rounded-full pl-5 pr-1 py-1 w-fit transition-all duration-300 group overflow-hidden"
+              >
                 <span className="absolute inset-0 rounded-full scale-x-0 origin-right bg-black group-hover:scale-x-100 transition-transform duration-300" />
                 <span className="text-sm pr-3 relative z-10 text-black group-hover:text-white transition-colors duration-300">
                   <DecryptedText text={cta} />
@@ -227,7 +235,7 @@ export function MobileNav({
                   <ArrowRight className="w-4 h-4 text-black group-hover:opacity-0 absolute transition-opacity duration-300" />
                   <ArrowUpRight className="w-4 h-4 text-black opacity-0 group-hover:opacity-100 group-hover:text-white transition-all duration-300" />
                 </span>
-              </button>
+              </a>
             </div>
           </nav>
         )}

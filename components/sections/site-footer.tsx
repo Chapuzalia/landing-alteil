@@ -2,6 +2,8 @@
 
 import { AlteilLogo } from "@/components/brand/alteil-logo"
 
+const legalLinks = ["/privacidad", "/terminos", "/#contact"] as const
+
 export function SiteFooter({
   navLinks,
   footer,
@@ -19,8 +21,8 @@ export function SiteFooter({
           ))}
         </div>
         <div className="flex items-center gap-6">
-          {footer.legal.map(label => (
-            <a key={label} href="#" className="text-xs text-foreground/25 hover:text-foreground/55 transition-colors tracking-widest">{label}</a>
+          {footer.legal.map((label, index) => (
+            <a key={label} href={legalLinks[index] ?? "/#contact"} className="text-xs text-foreground/25 hover:text-foreground/55 transition-colors tracking-widest">{label}</a>
           ))}
         </div>
       </div>
