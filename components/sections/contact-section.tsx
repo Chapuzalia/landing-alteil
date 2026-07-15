@@ -48,19 +48,19 @@ export function ContactSection({
             >
               <label className="grid gap-2 text-xs tracking-widest text-foreground/40">
                 {contact.fields.name}
-                <input required name="name" className="bg-background/70 border border-foreground/10 rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-foreground/25 transition-colors" />
+                <input required name="name" className="bg-background/70 border border-foreground/10 rounded-xl px-4 py-3 text-base text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-foreground/25 transition-colors" />
               </label>
               <label className="grid gap-2 text-xs tracking-widest text-foreground/40">
                 {contact.fields.company}
-                <input required name="company" className="bg-background/70 border border-foreground/10 rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-foreground/25 transition-colors" />
+                <input required name="company" className="bg-background/70 border border-foreground/10 rounded-xl px-4 py-3 text-base text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-foreground/25 transition-colors" />
               </label>
               <label className="grid gap-2 text-xs tracking-widest text-foreground/40">
                 {contact.fields.email}
-                <input required name="email" type="email" className="bg-background/70 border border-foreground/10 rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-foreground/25 transition-colors" />
+                <input required name="email" type="email" className="bg-background/70 border border-foreground/10 rounded-xl px-4 py-3 text-base text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-foreground/25 transition-colors" />
               </label>
               <label className="grid gap-2 text-xs tracking-widest text-foreground/40">
                 {contact.fields.message}
-                <textarea required name="message" rows={5} className="resize-none bg-background/70 border border-foreground/10 rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-foreground/25 transition-colors" />
+                <textarea required name="message" rows={5} className="resize-none bg-background/70 border border-foreground/10 rounded-xl px-4 py-3 text-base text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-foreground/25 transition-colors" />
               </label>
               <button type="submit" className="mt-2 h-12 rounded-xl bg-(--brand-blue) px-6 text-sm font-medium tracking-widest text-white transition-opacity hover:opacity-90">
                 {contact.submit}
